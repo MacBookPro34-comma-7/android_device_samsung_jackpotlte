@@ -4,8 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/samsung/jackpotlte
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -65,6 +63,9 @@ TARGET_KERNEL_CONFIG := exynos7885-jackpotlte_defconfig
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_SOC := exynos7885
+TARGET_BOOTLOADER_BOARD_NAME := universal7885
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
@@ -84,3 +85,26 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+
+# Recovery
+BOARD_HAS_DOWNLOAD_MODE := true
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/recovery.fstab
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 150
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXTRA_LANGUAGES := true
+TW_USE_NEW_MINADBD := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_FBE := true
+
+# Include
+TARGET_SPECIFIC_HEADER_PATH := hardware/samsung/dtbhtool/samsung_dtbh.h
+
+# SELinux Policies
+BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
+

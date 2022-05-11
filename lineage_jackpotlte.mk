@@ -4,6 +4,9 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+ 
+# Release name
+PRODUCT_RELEASE_NAME := jackpotlte
 
 # Inherit full device configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -23,3 +26,4 @@ PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-A530N
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_CHARACTERISTICS := phone
+PRODUCT_SHIPPING_API_LEVEL := 30
