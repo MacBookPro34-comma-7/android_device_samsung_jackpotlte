@@ -57,10 +57,13 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
-TARGET_KERNEL_CONFIG := jackpotlte_defconfig
+TARGET_KERNEL_CONFIG := exynos7885-jackpotlte_defconfig
 
 # Platform
 TARGET_BOARD_PLATFORM := default
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
 # Hack: prevent anti rollback
 # PLATFORM_SECURITY_PATCH := 2099-12-31
