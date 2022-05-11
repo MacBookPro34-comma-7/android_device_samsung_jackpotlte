@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/samsung/jackpotlte
+DEVICE_PATH := device/samsung/jackpotlte
 
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
