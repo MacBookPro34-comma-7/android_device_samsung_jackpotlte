@@ -1,0 +1,11 @@
+[
+    {
+        "repository": "android_hardware_samsung",
+        "target_path": "hardware/samsung"
+    },
+    {
+        "repository": "MacBookPro34-comma-7/android_kernel_samsung_universal7885",
+        "target_path": "kernel/samsung/jackpotlte"
+    }
+]
+
