@@ -10,6 +10,9 @@ DEVICE_PATH := device/samsung/jackpotlte
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
+# Call proprietary blob setup
+$(call inherit-product-if-exists, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     audio.a2dp.default
@@ -27,9 +30,9 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-# ifneq ($(findstring lineage, $(TARGET_PRODUCT)),)
-# DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
-# endif
+ifneq ($(findstring lineage, $(TARGET_PRODUCT)),)
+ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+endif
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -43,8 +46,8 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # SamsungDoze
-# PRODUCT_PACKAGES += \
-#    SamsungDoze
+PRODUCT_PACKAGES += \
+    SamsungDoze
 
 # System properties
 -include $(DEVICE_PATH)/product_prop.mk
