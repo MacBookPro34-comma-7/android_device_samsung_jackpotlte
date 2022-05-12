@@ -122,7 +122,7 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
 
 # Include
-TARGET_SPECIFIC_HEADER_PATH := hardware/samsung/dtbhtool/samsung_dtbh.h
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # SELinux Policies
 BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
