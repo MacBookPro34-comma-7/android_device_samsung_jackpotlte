@@ -18,14 +18,6 @@ vendor/firmware/calliope_dram.bin
 vendor/firmware/calliope_sram.bin
 
 # Vendor
-vendor/overlay/framework-res__auto_generated_rro.apk
-vendor/overlay/DisplayCutoutEmulationTall/DisplayCutoutEmulationTallOverlay.apk
-vendor/overlay/SysuiHideNotch/SysuiHideNotchOverlay.apk
-vendor/overlay/SysuiHideNotchWithoutCornerRound/SysuiHideNotchWithoutCornerRoundOverlay.apk
-vendor/overlay/DisplayCutoutEmulationCorner/DisplayCutoutEmulationCornerOverlay.apk
-vendor/overlay/SysuiDarkTheme/SysuiDarkThemeOverlay.apk
-vendor/overlay/DisplayCutoutEmulationDouble/DisplayCutoutEmulationDoubleOverlay.apk
-
 vendor/app/mcRegistry/ffffffff000000000000000000000019.tlbin
 vendor/app/mcRegistry/ffffffff000000000000000000000012.tlbin
 vendor/app/mcRegistry/ffffffff000000000000000000000013.tlbin
