@@ -5,6 +5,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/samsung/jackpotlte
+
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     audio.a2dp.default
@@ -42,12 +47,11 @@ PRODUCT_PACKAGES += \
 #    SamsungDoze
 
 # System properties
--include $(LOCAL_PATH)/product_prop.mk
+-include $(DEVICE_PATH)/product_prop.mk
 
-DEVICE_PATH := device/samsung/jackpotlte
-
-PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+# Boot animation / Resolution
+TARGET_SCREEN_HEIGHT := 2220
+TARGET_SCREEN_WIDTH := 1080
 
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
