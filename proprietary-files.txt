@@ -1,8 +1,7 @@
 # LPM
-bin/lpm
+# bin/lpm
 
 # Firmware
-
 vendor/firmware/Tfa9872.cnt
 vendor/firmware/setfile_3p8sp.bin
 vendor/firmware/APBargeIn_AUDIO_SLSI.bin
@@ -19,7 +18,6 @@ vendor/firmware/calliope_dram.bin
 vendor/firmware/calliope_sram.bin
 
 # Vendor
-
 vendor/overlay/framework-res__auto_generated_rro.apk
 vendor/overlay/DisplayCutoutEmulationTall/DisplayCutoutEmulationTallOverlay.apk
 vendor/overlay/SysuiHideNotch/SysuiHideNotchOverlay.apk
@@ -194,7 +192,6 @@ vendor/lib/libalsautils.so
 vendor/lib/libsnap_vndk.so
 vendor/lib/vendor.samsung.hardware.radio.secbridge@1.0_vendor.so
 
-vendor/bin/toolbox
 vendor/bin/wlbtd
 vendor/bin/wvkprov
 vendor/bin/moredump.bin
@@ -383,9 +380,7 @@ vendor/etc/seccomp_policy/configstore@1.1.policy
 vendor/etc/audio_policy_volumes.xml
 vendor/etc/plmn_se13.bin
 vendor/etc/audio_effects_common.conf
-vendor/etc/passwd
 vendor/etc/public.libraries.txt
-vendor/etc/wifi/wpa_supplicant_overlay.conf
 vendor/etc/wifi/mx140_t_wlan_t.hcf
 vendor/etc/wifi/mx140_t_wlan.hcf
 vendor/etc/wifi/mx140/conf/bluetooth/bt.hcf
@@ -434,7 +429,6 @@ vendor/etc/wifi/mx140_t/debug/wlan/symbols.dbg
 vendor/etc/wifi/mx140_t/debug/wlan/xide_mib.dbg
 vendor/etc/wifi/p2p_supplicant.conf
 vendor/etc/wifi/mx140_wlan_t.hcf
-vendor/etc/wifi/wpa_supplicant.conf
 vendor/etc/wifi/platform.txt
 vendor/etc/wifi/indoorchannel.info
 vendor/etc/wifi/mx140_wlan.hcf
@@ -450,7 +444,6 @@ vendor/etc/playback_record_audio_policy_configuration.xml
 vendor/etc/wlan_vendor_rc
 vendor/etc/tms_audio_policy_configuration.xml
 vendor/etc/media_codecs_google_telephony.xml
-vendor/etc/mkshrc
 vendor/etc/wlan_common_rc
 vendor/etc/snap_gpu_kernel_64.bin
 vendor/etc/audio_policy_configuration.xml
@@ -556,5 +549,5 @@ vendor/etc/media_profiles_V1_0.xml
 vendor/etc/plmn_delta_usagsm.bin
 vendor/etc/dolby/dax-default.xml
 vendor/etc/media_codecs_google_audio.xml
-vendor/etc/libnfc-sec-vendor.con
+# vendor/etc/libnfc-sec-vendor.con
 
