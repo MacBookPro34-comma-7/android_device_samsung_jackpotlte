@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/samsung/jackpotlte
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -38,7 +40,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 # TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 # TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
 BOARD_CUSTOM_BOOTIMG := true
@@ -58,6 +60,23 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 TARGET_KERNEL_CONFIG := exynos7885-jackpotlte_defconfig
+
+# Partitions - Boot
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+
+# Partitions - Cache
+BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Partitions - Recovery
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
+
+# Partitions - System
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3833593856
+
+# Partitions - Userdata
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 26919043072
 
 # Platform
 BOARD_VENDOR := samsung
@@ -89,7 +108,7 @@ TW_USE_TOOLBOX := true
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/recovery.fstab
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 150
