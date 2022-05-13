@@ -78,7 +78,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 26919043072
 
 # Partitions - Vendor
 TARGET_COPY_OUT_VENDOR := system/vendor
-BOARD_ROOT_EXTRA_SYMLINKS := /system/vendor:/vendor
 
 # Platform
 BOARD_VENDOR := samsung
