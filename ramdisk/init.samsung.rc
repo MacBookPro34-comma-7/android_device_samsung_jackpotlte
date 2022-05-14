@@ -52,11 +52,11 @@ on late-fs
 
 on post-fs-data
 
-    restorecon --recursive --force /efs
-    restorecon --recursive --force /cpefs
-    restorecon --recursive --force /mnt/vendor/efs
-    restorecon --recursive --force /mnt/vendor/cpefs
-    restorecon --recursive --force /sec_efs
+    restorecon --recursive /efs
+    restorecon --recursive /cpefs
+    restorecon --recursive /mnt/vendor/efs
+    restorecon --recursive /mnt/vendor/cpefs
+    restorecon --recursive /sec_efs
     restorecon_recursive /carrier
     # USB conn_gadget device (DeXonPC, Samsung Flow)
     chown system system /dev/android_ssusbcon
