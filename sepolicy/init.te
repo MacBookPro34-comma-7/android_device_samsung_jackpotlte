@@ -1,2 +1,3 @@
+allow init vendor_overlay_file:dir mounton;
 allow init configfs:file { getattr open unlink write };
 allow init configfs:lnk_file create;
