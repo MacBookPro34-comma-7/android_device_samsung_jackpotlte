@@ -95,7 +95,6 @@ TARGET_COPY_OUT_VENDOR := system/vendor
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_SOC := exynos7885
-TARGET_BOOTLOADER_BOARD_NAME := universal7885
 
 # Manifest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
@@ -119,7 +118,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7885
 RECOVERY_VARIANT := twrp
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/ramdisk/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
 TW_THEME := portrait_hdpi
-TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
