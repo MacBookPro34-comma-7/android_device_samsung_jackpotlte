@@ -8,6 +8,7 @@ DEVICE_PATH := device/samsung/jackpotlte
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+include vendor/samsung/jackpotlte/BoardConfigVendor.mk
 
 # Architecture
 TARGET_ARCH := arm64
@@ -113,25 +114,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7885
-
-# TWRP Configuration
-RECOVERY_VARIANT := twrp
-PRODUCT_COPY_FILES += $(DEVICE_PATH)/ramdisk/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
-TW_THEME := portrait_hdpi
-TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
-TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 162
-TW_NO_REBOOT_BOOTLOADER := true
-TW_HAS_DOWNLOAD_MODE := true
-TW_INCLUDE_NTFS_3G := true
-TW_EXCLUDE_SUPERSU := true
-TW_EXTRA_LANGUAGES := true
-TW_USE_NEW_MINADBD := true
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_FBE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
 # Charger
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
