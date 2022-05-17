@@ -2,7 +2,7 @@ ro.hardware=samsungexynos7885
 ro.chipname=exynos7885
 ro.arch=exynos7885
 ro.sf.lcd_density=480
-
+ro.boot.bootdevice=13500000.dwmmc0
 ro.fastbootd.available=true
 
 debug.sf.latch_unsignaled=1
