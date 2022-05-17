@@ -521,6 +521,6 @@
         <fqname>@1.0::ITeeRegistry/default</fqname>
     </hal>
     <sepolicy>
-        <version>30.0</version>
+        <version>32.0</version>
     </sepolicy>
 </manifest>
