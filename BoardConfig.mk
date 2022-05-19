@@ -128,6 +128,9 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 # WI-Fi
 BOARD_HAVE_SAMSUNG_WIFI := true
 
+# Audio
+USE_XML_AUDIO_POLICY_CONF := 1
+
 # Graphics
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
