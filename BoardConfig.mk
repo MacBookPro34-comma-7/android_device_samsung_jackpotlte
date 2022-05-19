@@ -48,7 +48,7 @@ TARGET_NO_KERNEL     := false
 
 # Kernel
 # BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
 TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
