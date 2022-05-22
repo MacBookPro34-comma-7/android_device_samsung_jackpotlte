@@ -7,7 +7,7 @@
 DEVICE_PATH := device/samsung/jackpotlte
 
 # Include
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include/samsung_dtbh
 include vendor/samsung/jackpotlte/BoardConfigVendor.mk
 
 # Architecture
@@ -48,8 +48,8 @@ TARGET_NO_KERNEL     := false
 
 # Kernel
 # BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
+# TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
+# TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_BOOT_HEADER_NAME := SRPQH21B008RU
@@ -62,15 +62,15 @@ BOARD_FLASH_BLOCK_SIZE := 4096 # blockdev --getbsz /dev/block/mmcblk0p9
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --dt $(TARGET_PREBUILT_DT)
+# BOARD_MKBOOTIMG_ARGS += --dt $(TARGET_PREBUILT_DT)
 BOARD_MKBOOTIMG_ARGS += --board $(BOARD_BOOT_HEADER_NAME)
-# BOARD_KERNEL_IMAGE_NAME := Image
-# BOARD_KERNEL_SEPARATED_DT := true
-# TARGET_KERNEL_ARCH := arm64
-# TARGET_KERNEL_HEADER_ARCH := arm64
-# TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
+BOARD_KERNEL_IMAGE_NAME := Image
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
-# TARGET_KERNEL_CONFIG := exynos7885-jackpotlte_defconfig
+TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
 
 # Device Tree
 BOARD_USES_DT := true
@@ -106,7 +106,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
 
 # Hack: prevent anti rollback
 # PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -116,7 +116,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7885
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/init/fstab.samsungexynos7885
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
 # Charger
