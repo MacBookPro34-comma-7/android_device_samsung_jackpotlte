@@ -17,16 +17,6 @@ $(call inherit-product-if-exists, vendor/samsung/jackpotlte/jackpotlte-vendor.mk
 PRODUCT_HOST_PACKAGES += \
     dtbhtoolExynos
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.samsungexynos7885 \
-    init.power.rc \
-    init.samsung.rc \
-    init.samsungexynos7885.rc \
-    init.samsungexynos7885.usb.rc \
-    init.wifi.rc \
-    ueventd.samsungexynos7885.rc
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     audio.a2dp.default
@@ -44,6 +34,10 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# init
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/init,$(TARGET_COPY_OUT_RAMDISK))
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/init,$(TARGET_COPY_OUT_VENDOR)/etc/init)
 
 # Permissions
 PRODUCT_COPY_FILES += \
