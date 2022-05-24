@@ -1,0 +1,26 @@
+
+on init
+#omr
+    mkdir /omr 0771 system system
+
+on boot
+#   Assign TCP buffer thresholds to be ceiling value of technology maximums
+#   Increased technology maximums should be reflected here.
+    write /proc/sys/net/core/rmem_max  8388608
+    write /proc/sys/net/core/wmem_max  8388608
+
+# tdmb
+    chown system system /dev/tdmb
+    chmod 0660 /dev/tdmb
+
+on fs
+#omr
+    wait /dev/block/platform/13500000.dwmmc0/by-name/OMR
+    mount ext4 /dev/block/platform/13500000.dwmmc0/by-name/OMR /omr nosuid nodev noatime noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic
+    chown system system /omr
+    chmod 0771 /omr
+
+service dmb /system/bin/dmbserver
+    class main
+    user media
+    group system radio inet misc audio graphics net_bt net_bt_admin sdcard_rw sdcard_r shell media_rw

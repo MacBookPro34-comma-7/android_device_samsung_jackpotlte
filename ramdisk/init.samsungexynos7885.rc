@@ -691,10 +691,10 @@ on fs
 #    seclabel u:r:tee:s0
 
 # faced
-service faced /system/bin/faced
-    class late_start
-    user system
-    group system
+#service faced /system/bin/faced
+#    class late_start
+#    user system
+#    group system
 
 # DM daemon
 #    service DM-daemon /system/bin/dmd
@@ -715,10 +715,10 @@ service goodixd /system/bin/goodixfingerprintd
     group media_rw system
 
 # faced
-#    service faced /system/bin/faced
-#    class late_start
-#    user system
-#    group system
+service faced /system/bin/faced
+    class late_start
+    user system
+    group system
 
 # SCE daemon
 #    service SCE-daemon /system/bin/sced
