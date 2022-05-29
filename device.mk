@@ -30,6 +30,7 @@ PRODUCT_PACKAGES += \
     init.samsungexynos7885.usb.rc \
     init.recovery.samsungexynos7885.rc \
     init.gps.rc \
+    init.carrier.rc \
     mobicore.rc \
     wifi_sec.rc \
     wifi_slsi.rc \

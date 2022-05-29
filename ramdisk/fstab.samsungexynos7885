@@ -8,9 +8,8 @@
 /dev/block/platform/13500000.dwmmc0/by-name/RECOVERY  /recovery emmc  defaults                        defaults
 /dev/block/platform/13500000.dwmmc0/by-name/SYSTEM /system ext4 ro,errors=panic wait
 /dev/block/platform/13500000.dwmmc0/by-name/CACHE	/cache		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic		wait,check
-/dev/block/platform/13500000.dwmmc0/by-name/USERDATA	/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic		wait,check,encryptable=footer,quota
-/dev/block/platform/13500000.dwmmc0/by-name/EFS		/efs		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic		wait,check
-/dev/block/platform/13500000.dwmmc0/by-name/CPEFS	/cpefs		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic		wait,check,nofail
+/dev/block/platform/13500000.dwmmc0/by-name/USERDATA	/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic		wait,check,encryptable=footer,length=-20480
+/dev/block/platform/13500000.dwmmc0/by-name/EFS		/efs		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic		wait,check,recoveryonly
 
 # VOLD
 /dev/block/platform/13500000.dwmmc0/by-name/HIDDEN      /preload    ext4    defaults    voldmanaged=preload:auto
