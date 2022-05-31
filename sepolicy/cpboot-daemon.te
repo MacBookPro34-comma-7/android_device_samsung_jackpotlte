@@ -46,6 +46,5 @@ allow cpboot-daemon proc_cmdline:file r_file_perms;
 
 # set properties on boot
 set_prop(cpboot-daemon, vendor_cbd_prop)
-set_prop(cpboot-daemon, system_prop)
 
 allow cpboot-daemon vendor_shell_exec:file execute_no_trans;

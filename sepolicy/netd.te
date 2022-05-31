@@ -1,7 +1,5 @@
 allow netd self:capability sys_module;
 allow netd gpsd:fd use;
-allow netd gpsd:udp_socket rw_socket_perms;
-allow netd gpsd:tcp_socket rw_socket_perms;
 allow netd init:tcp_socket { read write };
 
 allow netd init:tcp_socket getopt;

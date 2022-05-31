@@ -102,7 +102,8 @@ TARGET_BOARD_PLATFORM_GPU := mali-g71
 TARGET_SOC := exynos7885
 
 # Root extra folders
-BOARD_ROOT_EXTRA_FOLDERS += efs
+BOARD_ROOT_EXTRA_FOLDERS += efs cpefs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -220,7 +221,7 @@ TARGET_LD_SHIM_LIBS := \
 # BOARD_SEPOLICY_TEE_FLAVOR := mobicore
 # include device/samsung_slsi/sepolicy/sepolicy.mk
 
-# BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
+BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
 BOARD_SEPOLICY_VERS := $(PLATFORM_SDK_VERSION).0
 
 BUILD_BROKEN_USES_NETWORK := true

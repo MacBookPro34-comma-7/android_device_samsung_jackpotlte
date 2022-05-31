@@ -3,14 +3,9 @@ type gpsd_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(gpsd);
 
-# Automatically label files created in /data/system/gps as gps_vendor_data_file
-file_type_auto_trans(gpsd, system_data_file, gps_vendor_data_file)
-
 # Allow rild and netd to connect to gpsd
 unix_socket_connect(gpsd, property, rild)
-unix_socket_connect(gpsd, property, netd)
-
-allow gpsd system_server:unix_stream_socket { read write setopt };
+# unix_socket_connect(gpsd, property, netd)
 
 allow gpsd self:capability net_raw;
 
@@ -49,8 +44,6 @@ allow gpsd gps_vendor_data_file:fifo_file { unlink create setattr getattr rw_fil
 allow gpsd gps_vendor_data_file:file create_file_perms;
 
 allow gpsd sysfs_wake_lock:file rw_file_perms;
-
-allow gpsd sensorservice_service:service_manager { find };
 
 # /dev/umts_boot0
 allow gpsd mif_device:chr_file r_file_perms;

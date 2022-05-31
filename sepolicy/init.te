@@ -51,5 +51,3 @@ allow init sysfs:file setattr;
 
 unix_socket_connect(init, property, rild)
 allow init socket_device:sock_file { unlink create setattr };
-
-allow init tee_device:chr_file { read write open ioctl getattr };

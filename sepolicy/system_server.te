@@ -8,11 +8,6 @@ allow system_server sensor_efs_file:file r_file_perms;
 type_transition system_server system_data_file:fifo_file gps_vendor_data_file ".flp.interface.pipe.to_gpsd";
 type_transition system_server system_data_file:fifo_file gps_vendor_data_file ".gps.interface.pipe.to_gpsd";
 type_transition system_server system_data_file:fifo_file gps_vendor_data_file ".gps.interface.pipe.to_jni";
-allow system_server gps_vendor_data_file:fifo_file create_file_perms;
-allow system_server gps_vendor_data_file:dir rw_dir_perms;
-
-# /data/system/gps/chip.info
-allow system_server gps_vendor_data_file:file r_file_perms;
 
 # /efs/prox_cal
 allow system_server efs_file:file r_file_perms;
@@ -52,9 +47,3 @@ allow system_server sysfs_virtual:file write;
 allow system_server sysfs_iio:chr_file r_file_perms;
 allow system_server sysfs_iio:file write;
 
-# /data/system/gps/xtraee.bin
-allow system_server gps_vendor_data_file:file create_file_perms;
-
-unix_socket_connect(system_server, property, gpsd)
-
-allow system_server proc:file { read open getattr };
