@@ -76,7 +76,6 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-# A list of dpis to select prebuilt apk, in precedence order.
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 PRODUCT_PACKAGES += \
@@ -178,6 +177,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# Seccomp filters
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
+    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
@@ -254,11 +258,15 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.exynos
+    android.hardware.power@1.0-service.exynos \
+    android.hardware.power@1.0-impl \
+    power.universal7885
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.samsung
+    android.hardware.light@2.0-service.samsung \
+    android.hardware.light@2.0-impl \
+    lights.universal7885
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -317,11 +325,17 @@ PRODUCT_PACKAGES += \
 # System.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
+# HIDL Manifest
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/vintf/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+
+# call Samsung LSI board support package
+ifneq ($(WITH_EXYNOS_BSP),)
+$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos7885/exynos7885.mk)
+endif
+
 # Boot animation / Resolution
 TARGET_SCREEN_HEIGHT := 2220
 TARGET_SCREEN_WIDTH := 1080
-
-# call Samsung LSI board support package
-# $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
-# $(call inherit-product, hardware/samsung_slsi/exynos7885/exynos7885.mk)
 
