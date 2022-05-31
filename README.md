@@ -1,5 +1,14 @@
 Samsung Galaxy A8 (2018) (SM-A530N) Device Tree.
 
+---
+Copyright (C) 2022 The LineageOS Project
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+
+---
+
 `roomservice.xml`
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -11,12 +20,15 @@ Samsung Galaxy A8 (2018) (SM-A530N) Device Tree.
 </manifest>
 ```
 
----
-Copyright (C) 2022 The LineageOS Project
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
----
+`external/tinycompress/Android.mk`
+```diff
+@@ -18,7 +18,7 @@ cc_library_shared {
+         "libutils",
+     ],
+     header_libs: [
+-        "generated_kernel_headers",
++        "device_kernel_headers",
+     ],
+     product_variables: {
+         lineage: {
+```
