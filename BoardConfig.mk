@@ -46,27 +46,31 @@ TARGET_NO_RECOVERY   := false
 TARGET_NO_KERNEL     := false
 
 # Kernel
-# BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 # TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
 # TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
+TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
+TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
+
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_SECOND_OFFSET := 0x00f00000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_SECOND_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_FLASH_BLOCK_SIZE := 4096 # blockdev --getbsz /dev/block/mmcblk0p9
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DT := true
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
-TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
-TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
+# BOARD_KERNEL_PREBUILT_DT := true
 
 # Device Tree
 BOARD_USES_DT := true
@@ -85,7 +89,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3833593856
 
 # Partitions - Userdata (26919043072 - 20480)
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 26919022592
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 26919043072
 
 # Partitions - Vendor
 TARGET_COPY_OUT_VENDOR := system/vendor
@@ -93,18 +97,12 @@ TARGET_COPY_OUT_VENDOR := system/vendor
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
-#TARGET_SLSI_VARIANT := bsp
+TARGET_SLSI_VARIANT := bsp
 TARGET_BOARD_PLATFORM_GPU := mali-g71
 TARGET_SOC := exynos7885
 
-# Manifest
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
-PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
-# DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
-
 # Root extra folders
 BOARD_ROOT_EXTRA_FOLDERS += efs
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -117,7 +115,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
 
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
-# TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7885
 # RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
@@ -132,6 +130,8 @@ TARGET_TAP_TO_WAKE_NODE := /sys/class/sec/tsp/dt2w_enable
 
 # WI-Fi
 BOARD_HAVE_SAMSUNG_WIFI := true
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
@@ -196,9 +196,14 @@ BOARD_PROVIDES_LIBRIL := true
 ENABLE_VENDOR_RIL_SERVICE := true
 # TARGET_USES_VND_SECRIL := true
 
-# Build fingerprint
-BUILD_FINGERPRINT := "samsung/jackpotlte/jackpotlte:9/PPR1.180610.011/A530NKSU9CUL1:user/release-keys"
-PRIVATE_BUILD_DESC := "jackpotlte-user 9 PPR1.180610.011 A530NKSU9CUL1 release-keys"
+# Exclude AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
+# Samsung HALs
+# TARGET_AUDIOHAL_VARIANT := samsung # exists in proprietary.
+TARGET_POWERHAL_VARIANT := samsung
+TARGET_SEC_FP_HAL_VARIANT := bauth
+
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
@@ -210,7 +215,13 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib64/libexynoscamera.so|libexynoscamera_shim.so
 
 # SELinux Policies
+# include device/lineage/sepolicy/exynos/sepolicy.mk
+
+# BOARD_SEPOLICY_TEE_FLAVOR := mobicore
+# include device/samsung_slsi/sepolicy/sepolicy.mk
+
 # BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
+BOARD_SEPOLICY_VERS := $(PLATFORM_SDK_VERSION).0
 
 BUILD_BROKEN_USES_NETWORK := true
 TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
