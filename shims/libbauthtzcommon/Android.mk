@@ -18,6 +18,9 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     libbauthtzcommon.c
 
+LOCAL_C_INCLUDES := \
+    $(TOP)/system/core/libcutils/include
+
 LOCAL_SHARED_LIBRARIES := liblog
 
 LOCAL_MODULE := libbauthtzcommon_shim
