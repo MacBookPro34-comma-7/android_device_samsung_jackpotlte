@@ -165,6 +165,7 @@ vendor/lib64/libion_exynos.so
 vendor/lib64/libvndsecril-client.so
 vendor/lib64/libcrypto.so
 vendor/lib64/libsecpkcs11_engine.so
+vendor/lib64/egl/libGLES_mali.so
 vendor/lib64/libsecaudioinfo.so
 vendor/lib64/soundfx/libswdap.so
 vendor/lib64/soundfx/libaudioeffectoffload.so

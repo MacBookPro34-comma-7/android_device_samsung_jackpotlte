@@ -205,6 +205,8 @@ TARGET_EXCLUDES_AUDIOFX := true
 TARGET_POWERHAL_VARIANT := samsung
 TARGET_SEC_FP_HAL_VARIANT := bauth
 
+# HIDL Manifest
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
 
 # Shims
 TARGET_LD_SHIM_LIBS := \

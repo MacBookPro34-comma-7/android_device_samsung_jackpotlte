@@ -81,10 +81,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl:64 \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.renderscript@1.0-impl \
     memtrack.exynos5 \
@@ -139,10 +139,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.software
 
-# Keymaster
+# keymaster
 PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0 \
+    android.hardware.keymaster@3.0-service \
     android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+    libkeymaster3device
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
@@ -218,17 +220,15 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio.service \
-    android.hardware.audio@6.0-impl \
-    android.hardware.audio.effect@6.0-impl \
-    android.hardware.audio.common-util \
-    android.hardware.audio.common@2.0-util \
-    android.hardware.audio.common@2.0 \
-    android.hardware.audio.common@6.0-util \
-    android.hardware.audio.common@6.0 \
     audio.a2dp.default \
+    audio.bluetooth.default \
     audio.usb.default \
     audio.r_submix.default \
+    android.hardware.audio@5.0-impl:32 \
+    android.hardware.audio@2.0-service \
+    android.hardware.audio.effect@5.0-impl:32 \
+    android.hardware.audio.effect@2.0-service \
+    android.hardware.bluetooth.audio@2.0-impl:32 \
     libtinycompress
 
 # Media
@@ -326,10 +326,6 @@ PRODUCT_PACKAGES += \
 
 # System.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# HIDL Manifest
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/vintf/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 # call Samsung LSI board support package
 ifneq ($(WITH_EXYNOS_BSP),)
