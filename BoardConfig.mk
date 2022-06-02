@@ -102,7 +102,7 @@ TARGET_BOARD_PLATFORM_GPU := mali-g71
 TARGET_SOC := exynos7885
 
 # Root extra folders
-BOARD_ROOT_EXTRA_FOLDERS += efs cpefs
+BOARD_ROOT_EXTRA_FOLDERS += /mnt/vendor/efs /mnt/vendor/cpefs
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Bluetooth
@@ -117,7 +117,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/ramdisk/fstab.samsungexynos7885
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7885
 # RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
 # Charger
