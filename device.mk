@@ -31,10 +31,12 @@ PRODUCT_PACKAGES += \
     init.recovery.samsungexynos7885.rc \
     init.gps.rc \
     init.carrier.rc \
+    init.power.rc \
     mobicore.rc \
-    wifi_sec.rc \
+    init.wifi.rc \
     wifi_slsi.rc \
-    ueventd.samsungexynos7885.rc
+    ueventd.samsungexynos7885.rc \
+    loggy.sh
 
 # Permissions
 PRODUCT_COPY_FILES += \
