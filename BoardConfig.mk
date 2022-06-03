@@ -10,7 +10,6 @@ BUILD_BROKEN_DUP_RULES := true
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-include vendor/samsung/jackpotlte/BoardConfigVendor.mk
 
 # Architecture
 TARGET_ARCH := arm64
@@ -24,7 +23,12 @@ TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
+
+# Binder
 TARGET_USES_64_BIT_BINDER := true
+
+# Apex
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := jackpotlte
@@ -54,7 +58,8 @@ TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
 
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+# BOARD_KERNEL_CMDLINE := The bootloader ignores the cmdline from the boot.img
+BOARD_BOOT_HEADER_NAME :=SRPQH21B008KU
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x10000000
@@ -205,17 +210,10 @@ TARGET_EXCLUDES_AUDIOFX := true
 TARGET_POWERHAL_VARIANT := samsung
 TARGET_SEC_FP_HAL_VARIANT := bauth
 
-# HIDL Manifest
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
-
 # Shims
-TARGET_LD_SHIM_LIBS := \
-    /vendor/lib/libbauthserver.so|libbauthtzcommon_shim.so \
-    /vendor/lib64/libbauthserver.so|libbauthtzcommon_shim.so \
-    /system/lib/libcamera_client.so|libcamera_client_shim.so \
-    /system/lib64/libcamera_client.so|libcamera_client_shim.so \
-    /system/lib/libexynoscamera.so|libexynoscamera_shim.so \
-    /system/lib64/libexynoscamera.so|libexynoscamera_shim.so
+TARGET_LD_SHIM_LIBS += \
+    /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so \
+    /system/lib64/libexynoscamera.so|/vendor/lib64/libexynoscamera_shim.so
 
 # SELinux Policies
 # include device/lineage/sepolicy/exynos/sepolicy.mk
@@ -225,7 +223,3 @@ TARGET_LD_SHIM_LIBS := \
 
 BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
 BOARD_SEPOLICY_VERS := $(PLATFORM_SDK_VERSION).0
-
-BUILD_BROKEN_USES_NETWORK := true
-TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
-
