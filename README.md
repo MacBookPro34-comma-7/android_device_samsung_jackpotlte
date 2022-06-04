@@ -20,7 +20,7 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
 </manifest>
 ```
 
-`external/tinycompress/Android.mk`
+`external/tinycompress/Android.bp`
 ```diff
 @@ -18,7 +18,7 @@ cc_library_shared {
          "libutils",
