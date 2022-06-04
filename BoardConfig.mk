@@ -59,7 +59,7 @@ TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
 
 # BOARD_KERNEL_CMDLINE := The bootloader ignores the cmdline from the boot.img
-BOARD_BOOT_HEADER_NAME :=SRPQH21B008KU
+BOARD_BOOT_HEADER_NAME := SRPQH21B008KU
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x10000000
@@ -206,14 +206,16 @@ ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_EXCLUDES_AUDIOFX := true
 
 # Samsung HALs
-# TARGET_AUDIOHAL_VARIANT := samsung # exists in proprietary.
 TARGET_POWERHAL_VARIANT := samsung
 TARGET_SEC_FP_HAL_VARIANT := bauth
 
+# HIDL Manifest
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+
 # Shims
-TARGET_LD_SHIM_LIBS += \
-    /system/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so \
-    /system/lib64/libexynoscamera.so|/vendor/lib64/libexynoscamera_shim.so
+TARGET_LD_SHIM_LIBS := \
+    /system/lib/libexynoscamera.so|libexynoscamera_shim.so \
+    /system/lib64/libexynoscamera.so|libexynoscamera_shim.so
 
 # SELinux Policies
 # include device/lineage/sepolicy/exynos/sepolicy.mk
