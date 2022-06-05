@@ -10,7 +10,7 @@ BUILD_BROKEN_DUP_RULES := true
 
 # Include
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-include vendor/samsung/jackpotlte/BoardConfigVendor.mk
+# include vendor/samsung/jackpotlte/BoardConfigVendor.mk
 
 # Architecture
 TARGET_ARCH := arm64
