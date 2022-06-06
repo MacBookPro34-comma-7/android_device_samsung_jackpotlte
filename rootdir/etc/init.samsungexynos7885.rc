@@ -161,8 +161,10 @@ on post-fs-data
 on boot
 # SSWAP
     write /proc/sys/vm/swappiness 130
-	
-	setprop wifi.interface wlan0
+    setprop wifi.interface wlan0
+
+    # Allow to aceess /proc/cmdline for TelephonyManager
+    chown root radio /proc/cmdline
 
     # Allow to access debugfs for system:system
     chmod 0755 /sys/kernel/debug
@@ -170,14 +172,14 @@ on boot
     setprop ro.radio.noril no
 	
 	# Set permissions for ttysac2
-	chown system system /dev/ttySAC2
-	chmod 0660 /dev/ttySAC2
+    chown system system /dev/ttySAC2
+    chmod 0660 /dev/ttySAC2
 
     # Set up kernel tracing, but disable it by default
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
     write /sys/kernel/debug/tracing/tracing_on 0
 	
-	# Permissions for NAD
+    # Permissions for NAD
     symlink /dev/block/platform/13500000.dwmmc0/by-name/NAD_REFER /dev/block/NAD_REFER
 
     # DVFS & Hotplug
