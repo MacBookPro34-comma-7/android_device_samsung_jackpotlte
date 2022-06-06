@@ -10,7 +10,7 @@ DEVICE_PATH := device/samsung/jackpotlte
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
 # device tree for boot image
 PRODUCT_HOST_PACKAGES += \
@@ -25,7 +25,6 @@ PRODUCT_PACKAGES += \
     init.samsung.rc \
     init.samsungexynos7885.rc \
     init.samsungexynos7885.usb.rc \
-    init.recovery.samsungexynos7885.rc \
     init.gps.rc \
     init.carrier.rc \
     init.power.rc \
@@ -34,6 +33,13 @@ PRODUCT_PACKAGES += \
     wifi_slsi.rc \
     ueventd.samsungexynos7885.rc \
     loggy.sh
+
+# Recovery
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/rootdir/etc/atrace.rc:$(TARGET_COPY_OUT_RECOVERY)/root/atrace.rc \
+    $(DEVICE_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_RECOVERY)/root/ueventd.rc \
+    $(DEVICE_PATH)/rootdir/etc/ueventd.samsungexynos7885.rc:$(TARGET_COPY_OUT_RECOVERY)/root/ueventd.samsungexynos7885.rc \
+    $(DEVICE_PATH)/rootdir/etc/init.recovery.samsungexynos7885.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.samsungexynos7885.rc
 
 # Permissions
 PRODUCT_COPY_FILES += \

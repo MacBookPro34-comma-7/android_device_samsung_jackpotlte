@@ -27,9 +27,6 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 # Binder
 TARGET_USES_64_BIT_BINDER := true
 
-# Apex
-DEXPREOPT_GENERATE_APEX_IMAGE := true
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := jackpotlte
 
@@ -111,15 +108,14 @@ TARGET_SOC := exynos7885
 BOARD_ROOT_EXTRA_FOLDERS += /mnt/vendor/efs /mnt/vendor/cpefs
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
-
 # Recovery
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7885
-# RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
 
 # Charger
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
