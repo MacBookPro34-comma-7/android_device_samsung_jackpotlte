@@ -310,8 +310,5 @@ PRODUCT_PACKAGES += \
 # Properties
 include $(DEVICE_PATH)/system_prop.mk
 
-# Apex
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)

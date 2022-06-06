@@ -143,9 +143,6 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 # Exclude AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
-# Renderscript
-OVERRIDE_RS_DRIVER := libRSDriverArm.so
-
 # Samsung HALs
 TARGET_POWERHAL_VARIANT := samsung
 TARGET_SEC_FP_HAL_VARIANT := bauth
@@ -159,9 +156,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib64/libcamera_client.so|libcamera_client_shim.so \
     /system/lib/libexynoscamera.so|libexynoscamera_shim.so \
     /system/lib64/libexynoscamera.so|libexynoscamera_shim.so
-
-# Apex
-DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # SELinux Policies
 # include device/lineage/sepolicy/exynos/sepolicy.mk
