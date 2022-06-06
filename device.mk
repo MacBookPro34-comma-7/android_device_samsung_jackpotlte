@@ -292,7 +292,8 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libexynoscamera_shim
+    libexynoscamera_shim \
+    libcamera_client_shim
 
 # stagefright
 PRODUCT_PACKAGES += \
@@ -306,11 +307,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.1-service.typec
 
-# System.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
-# Apex
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+# Properties
+include $(DEVICE_PATH)/system_prop.mk
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)
