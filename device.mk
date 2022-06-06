@@ -307,8 +307,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.1-service.typec
 
-# System.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+# Properties
+include $(DEVICE_PATH)/system_prop.mk
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)

@@ -92,6 +92,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3833593856
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 26919043072
 
 # Partitions - Vendor
+BOARD_VENDOR := samsung
 TARGET_COPY_OUT_VENDOR := system/vendor
 
 # Platform
@@ -132,86 +133,25 @@ TARGET_TAP_TO_WAKE_NODE := /sys/class/sec/tsp/dt2w_enable
 # WI-Fi
 BOARD_HAVE_SAMSUNG_WIFI := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
-WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Graphics
-USE_OPENGL_RENDERER := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-BOARD_USES_EXYNOS5_COMMON_GRALLOC := true
-
-# HWComposer
-BOARD_USES_VPP := true
-#BOARD_USES_VPP_V2 := true // 8890 only
-BOARD_HDMI_INCAPABLE := true
-
-# WiFiDisplay
-#BOARD_USES_VIRTUAL_DISPLAY := true - depends on platform changes
-BOARD_USES_VIRTUAL_DISPLAY_DECON_EXT_WB := false
-BOARD_USE_VIDEO_EXT_FOR_WFD_DRM := false
-BOARD_USES_VDS_BGRA8888 := true
-BOARD_VIRTUAL_DISPLAY_DISABLE_IDMA_G0 := false
-
-# FIMG2D
-BOARD_USES_SKIA_FIMGAPI := true
-BOARD_USES_FIMGAPI_V5X := true
-
-# SCALER
-BOARD_USES_DEFAULT_CSC_HW_SCALER := true
-BOARD_USES_SCALER_M2M1SHOT := true
-
-# Video scaling issue workaround
-TARGET_OMX_LEGACY_RESCALING := true
-
-# LIBHWJPEG
-TARGET_USES_UNIVERSAL_LIBHWJPEG := true
-
-# Samsung OpenMAX Video
-BOARD_USE_STOREMETADATA := true
-BOARD_USE_METADATABUFFERTYPE := true
-BOARD_USE_DMA_BUF := true
-BOARD_USE_ANB_OUTBUF_SHARE := true
-BOARD_USE_IMPROVED_BUFFER := true
-BOARD_USE_NON_CACHED_GRAPHICBUFFER := true
-BOARD_USE_GSC_RGB_ENCODER := true
-BOARD_USE_CSC_HW := false
-BOARD_USE_QOS_CTRL := false
-BOARD_USE_S3D_SUPPORT := false
-BOARD_USE_TIMESTAMP_REORDER_SUPPORT := true
-BOARD_USE_DEINTERLACING_SUPPORT := true
-BOARD_USE_VP8ENC_SUPPORT := true
-BOARD_USE_HEVCDEC_SUPPORT := true
-BOARD_USE_HEVCENC_SUPPORT := true
-BOARD_USE_HEVC_HWIP := false
-BOARD_USE_VP9DEC_SUPPORT := true
-BOARD_USE_VP9ENC_SUPPORT := false
-BOARD_USE_CUSTOM_COMPONENT_SUPPORT := true
-BOARD_USE_VIDEO_EXT_FOR_WFD_HDCP := true
-BOARD_USE_SINGLE_PLANE_IN_DRM := true
-
-# RIL
-BOARD_MODEM_TYPE := ss333
-BOARD_PROVIDES_LIBRIL := true
-ENABLE_VENDOR_RIL_SERVICE := true
-# TARGET_USES_VND_SECRIL := true
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 
 # Exclude AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
 # Samsung HALs
-# TARGET_AUDIOHAL_VARIANT := samsung # exists in proprietary.
 TARGET_POWERHAL_VARIANT := samsung
 TARGET_SEC_FP_HAL_VARIANT := bauth
 
 # HIDL Manifest
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /vendor/lib/libbauthserver.so|libbauthtzcommon_shim.so \
-    /vendor/lib64/libbauthserver.so|libbauthtzcommon_shim.so \
     /system/lib/libcamera_client.so|libcamera_client_shim.so \
     /system/lib64/libcamera_client.so|libcamera_client_shim.so \
     /system/lib/libexynoscamera.so|libexynoscamera_shim.so \
@@ -225,7 +165,4 @@ TARGET_LD_SHIM_LIBS := \
 
 BOARD_SEPOLICY_DIRS := device/samsung/jackpotlte/sepolicy
 BOARD_SEPOLICY_VERS := $(PLATFORM_SDK_VERSION).0
-
-BUILD_BROKEN_USES_NETWORK := true
-TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
 
