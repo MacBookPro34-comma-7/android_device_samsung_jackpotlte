@@ -19,7 +19,7 @@
 
 #include <fstream>
 
-#include "SunlightEnhancement.h"
+#include "AdaptiveBacklight.h"
 
 using android::base::ReadFileToString;
 using android::base::Trim;
@@ -31,22 +31,21 @@ namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
 
-static constexpr const char* kLUXPath = "/sys/class/mdnie/mdnie/lux";
+static constexpr const char* kBacklightPath = "/sys/class/lcd/panel/power_reduce";
 
-Return<bool> SunlightEnhancement::isEnabled() {
+Return<bool> AdaptiveBacklight::isEnabled() {
     std::string tmp;
     int32_t contents = 0;
 
-    if (ReadFileToString(kLUXPath, &tmp)) {
+    if (ReadFileToString(kBacklightPath, &tmp)) {
         contents = std::stoi(Trim(tmp));
     }
 
     return contents > 0;
 }
 
-Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    /* see drivers/video/fbdev/exynos/decon_7880/panels/mdnie_lite_table*, get_hbm_index */
-    return WriteStringToFile(enabled ? "40000" : "0", kLUXPath, true);
+Return<bool> AdaptiveBacklight::setEnabled(bool enabled) {
+    return WriteStringToFile(enabled ? "1" : "0", kBacklightPath, true);
 }
 
 }  // namespace implementation
