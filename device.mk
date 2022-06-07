@@ -173,7 +173,7 @@ PRODUCT_PACKAGES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/keylayout/Generic.kl:/$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl
+    $(DEVICE_PATH)/configs/keylayout/gpio_keys.kl:/$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio_keys.kl
 
 # Livedisplay
 PRODUCT_PACKAGES += \
@@ -307,7 +307,8 @@ PRODUCT_PACKAGES += \
 
 # Offmode charger
 PRODUCT_PACKAGES += \
-    charger_res_images
+    charger_res_images \
+    lineage_charger_res_images
 
 # USB
 PRODUCT_PACKAGES += \

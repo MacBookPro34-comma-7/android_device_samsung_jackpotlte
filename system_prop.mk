@@ -9,7 +9,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdcp2.rx=tz \
     keyguard.no_require_sim=true \
     ro.carrier=unknown \
+    vendor.rild.libpath=/vendor/lib64/libsec-ril.so \
     vendor.sec.rild.libpath=/vendor/lib64/libsec-ril.so \
+    vendor.sec.rild.libpath2=/vendor/lib64/libsec-ril.so \
     ro.dalvik.vm.native.bridge=0 \
     security.ASKS.policy_version=000000 \
     security.mdf.result=None \
@@ -54,7 +56,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=true \
     ro.config.vc_call_vol_steps=5 \
     debug.sf.latch_unsignaled=1 \
-    debug.stagefright.ccodec=0
+    debug.stagefright.ccodec=0 \
+    qemu.hw.mainkeys=0
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
