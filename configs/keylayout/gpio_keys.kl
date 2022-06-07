@@ -468,7 +468,7 @@ key 582   VOICE_ASSIST
 key 672   EMERGENCY
 
 # input_fw Intelligent Key for Dream
-key 703   WINK
+key 703 POWER
 
 # input_fw SIP on off key for TabS4 pogo keyboard
 key 706 SIP_ON_OFF
