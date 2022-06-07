@@ -51,3 +51,8 @@ allow init sysfs:file setattr;
 
 unix_socket_connect(init, property, rild)
 allow init socket_device:sock_file { unlink create setattr };
+
+# ZRAM
+allow init ram_device:blk_file write;
+allow init sysfs_zram:file { create_file_perms rw_file_perms };
+allow init sysfs_zram:dir r_dir_perms;

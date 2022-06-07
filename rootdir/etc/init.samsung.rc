@@ -202,7 +202,18 @@ on post-fs-data
     restorecon_recursive /carrier
 # ] SEC_SELINUX_PORTING COMMON
 
+# LPM
+service lpm /system/bin/lpm
+    class sec-charger
+    user root
+    group system radio input
+    critical
+
 on boot
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+
     # KNOX KAP
     chown system system /dev/knox_kap
     chmod 0660 /dev/knox_kap
@@ -695,10 +706,3 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
     user system
     group system
     disabled
-
-# Sensorhub service
-service sensorhubservice /system/bin/sensorhubservice
-    class main
-    user system
-    group input
-

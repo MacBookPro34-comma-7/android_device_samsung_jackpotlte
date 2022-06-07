@@ -19,6 +19,7 @@ PRODUCT_HOST_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7885 \
+    fstab.zram \
     init.baseband.rc \
     init.vendor.rilchip.rc \
     init.vendor.rilcommon.rc \

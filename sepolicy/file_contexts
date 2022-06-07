@@ -225,3 +225,6 @@
 /(vendor|system/vendor)/bin/hw/gpsd          u:object_r:gpsd_exec:s0
 /(vendor|system/vendor)/bin/mcDriverDaemon   u:object_r:tee_exec:s0
 /(vendor|system/vendor)/bin/modemloader      u:object_r:modemloader_exec:s0
+
+# ZRAM
+/dev/block/zram0 u:object_r:swap_block_device:s0

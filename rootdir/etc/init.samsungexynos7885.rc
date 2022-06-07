@@ -9,7 +9,7 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 on init
-	start watchdogd
+    start watchdogd
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /storage/sdcard 0000 root root
     mkdir /storage/usb1 0000 root root
@@ -77,8 +77,8 @@ on post-fs-data
     # Setup Wi-Fi permissions
     mkdir /data/misc/wifi 0770 wifi system
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
-	mkdir /vendor/etc/wifi 0770 system system
-	mkdir /data/hostapd 0770 system wifi
+    mkdir /vendor/etc/wifi 0770 system system
+    mkdir /data/hostapd 0770 system wifi
 	
 # Permissions for audio
     chown system radio /sys/class/audio/earjack/select_jack
@@ -155,7 +155,7 @@ on post-fs-data
 ## SCSC WLAN
     write /sys/module/scsc_mx/parameters/disable_recovery_handling 0
 	
-	chmod 0755 /sys/kernel/debug/tracing
+    chmod 0755 /sys/kernel/debug/tracing
     restorecon /sys/kernel/debug/tracing/trace_marker
 
 on boot
@@ -171,7 +171,7 @@ on boot
     chown system system /sys/kernel/debug
     setprop ro.radio.noril no
 	
-	# Set permissions for ttysac2
+    # Set permissions for ttysac2
     chown system system /dev/ttySAC2
     chmod 0660 /dev/ttySAC2
 
@@ -352,9 +352,9 @@ on boot
     chown system radio /sys/class/sensors/grip_sensor/body_threshold
     chown system radio /sys/class/sensors/grip_sensor/grip_flush
     chown system radio /sys/class/sensors/grip_sensor/irq_count
-	chown system radio /sys/class/sensors/grip_sensor/ch_count
-	
-	chown system radio /sys/class/sensors/grip_sensor/grip_irq_count
+    chown system radio /sys/class/sensors/grip_sensor/ch_count
+
+    chown system radio /sys/class/sensors/grip_sensor/grip_irq_count
     chown system radio /sys/class/sensors/grip_sensor/grip_threshold
     chown system radio /sys/class/sensors/grip_sensor/grip_total_cap
     chown system radio /sys/class/sensors/grip_sensor/grip_sar_enable
@@ -396,9 +396,9 @@ on boot
     chown system radio /sys/class/sensors/grip_sensor_wifi/body_threshold
     chown system radio /sys/class/sensors/grip_sensor_wifi/grip_flush
     chown system radio /sys/class/sensors/grip_sensor_wifi/irq_count
-	chown system radio /sys/class/sensors/grip_sensor/ch_count
+    chown system radio /sys/class/sensors/grip_sensor/ch_count
 
-	chown system radio /sys/class/sensors/grip_sensor_wifi/grip_irq_count
+    chown system radio /sys/class/sensors/grip_sensor_wifi/grip_irq_count
     chown system radio /sys/class/sensors/grip_sensor_wifi/grip_threshold
     chown system radio /sys/class/sensors/grip_sensor_wifi/grip_total_cap
     chown system radio /sys/class/sensors/grip_sensor_wifi/grip_sar_enable
@@ -436,6 +436,7 @@ on boot
 on fs
     wait /dev/block/platform/13500000.dwmmc0/by-name/EFS
     mount_all /vendor/etc/fstab.samsungexynos7885
+    swapon_all /vendor/etc/fstab.zram
     symlink /mnt/vendor/efs/sec_efs /efs
     setprop ro.crypto.fuse_sdcard true
 
@@ -491,12 +492,6 @@ service argos-daemon /vendor/bin/argosd
     user system
     group system radio
 
-service trustonic-proxy /system/bin/trustonic_tee_proxy
-    class core
-    user system
-    group system drmrpc
-    seclabel u:r:tee:s0
-
 service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard /storage/sdcard
     class late_start
     disabled
@@ -527,23 +522,10 @@ on property:ro.bootmode=charger
     mkdir /efs/lpm 0775 system system
     class_start sec-charger
 
-# Make symlink to param partition
-service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13500000.dwmmc0/by-name/PARAM
-    class core
-    user root
-    group root
-    seclabel u:r:prepare_param:s0
-    oneshot
-
 # Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
 service watchdogd /sbin/watchdogd 10 20
     class core
     seclabel u:r:watchdogd:s0
-
-service watchdog_break /system/bin/watchdog_break.sh
-    oneshot
-    class core
-    seclabel u:r:watchdogd:s0	
 
 # on userdebug and eng builds, enable kgdb on the serial console
 on property:ro.debuggable=1
@@ -592,14 +574,6 @@ service iprenew_bt-pan /vendor/bin/dhcpcd -n
         class main
         disabled
         oneshot
-
-# SSWAP
-service swapon /sbin/sswap -s -f 1024
-    class core
-    user root
-    group root
-    seclabel u:r:sswap:s0
-    oneshot
 
 service loggy /system/bin/sh /system/vendor/etc/init/hw/loggy.sh
     class main
