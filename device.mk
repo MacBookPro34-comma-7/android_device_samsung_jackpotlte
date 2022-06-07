@@ -30,7 +30,7 @@ PRODUCT_PACKAGES += \
     init.carrier.rc \
     init.power.rc \
     mobicore.rc \
-    init.wifi.rc \
+    wifi_sec.rc \
     wifi_slsi.rc \
     ueventd.samsungexynos7885.rc \
     loggy.sh
