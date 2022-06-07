@@ -322,6 +322,11 @@ PRODUCT_PACKAGES += \
 # Properties
 include $(DEVICE_PATH)/system_prop.mk
 
+# Embedded SU
+ifeq ($(WITH_SU),true)
+    SUPERUSER_EMBEDDED := true
+endif
+
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)
 
