@@ -36,6 +36,9 @@ PRODUCT_PACKAGES += \
     loggy.sh
 
 # Recovery
+PRODUCT_PACKAGES += \
+    fastbootd
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/atrace.rc:$(TARGET_COPY_OUT_RECOVERY)/root/atrace.rc \
     $(DEVICE_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_RECOVERY)/root/ueventd.rc \
