@@ -27,6 +27,11 @@
          before automatically restore the default connection.  Set -1 if the connection
          does not require auto-restore. -->
     <!-- the 6th element indicates boot-time dependency-met value. -->
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
     <string-array translatable="false" name="networkAttributes">
         <item>"wifi,1,1,1,-1,true"</item>
         <item>"mobile,0,0,0,-1,true"</item>
@@ -146,32 +151,32 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>9</item>
-        <item>30</item>
+        <item>1</item>
+        <item>40</item>
         <item>100</item>
         <item>325</item>
+        <item>600</item>
         <item>1250</item>
-        <item>3500</item>
+        <item>2200</item>
+        <item>4000</item>
         <item>10000</item>
-        <item>20000</item>
     </integer-array>
-
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <!--     9 --> <item>18</item>
-        <!--    30 --> <item>30</item>
-        <!--   100 --> <item>59</item>
-        <!--   325 --> <item>74</item>
-        <!--  1250 --> <item>92</item>
-        <!--  3500 --> <item>118</item>
-        <!-- 10000 --> <item>155</item>
-        <!-- 20000 --> <item>222</item>
-                       <item>255</item>
+        <item>11</item>   <!-- 0-1 -->
+        <item>22</item>   <!-- 1-40 -->
+        <item>47</item>   <!-- 40-100 -->
+        <item>61</item>   <!-- 100-325 -->
+        <item>84</item>   <!-- 325-600 -->
+        <item>107</item>  <!-- 600-1250 -->
+        <item>154</item>  <!-- 1250-2200 -->
+        <item>212</item>  <!-- 2200-4000 -->
+        <item>245</item>  <!-- 4000-10000 -->
+        <item>255</item>  <!-- 10000+ -->
     </integer-array>
-
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
     <integer name="config_screenBrightnessSettingMinimum">10</integer>
@@ -183,7 +188,7 @@
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">10</integer>
+    <integer name="config_screenBrightnessDim">30</integer>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
@@ -211,7 +216,7 @@ Add a comment to this line
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
-    <bool name="config_batterySdCardAccessibility">false</bool>
+    <bool name="config_batterySdCardAccessibility">true</bool>
 
     <!-- Permit doze mode to operate -->
     <bool name="config_enableAutoPowerModes">true</bool>
@@ -227,28 +232,17 @@ Add a comment to this line
     <!-- The device supports freeform window management -->
     <bool name="config_freeformWindowManagement">true</bool>
 
-    <!-- Flag indicating whether strict threshold is used, or lenient threshold is used,
-            when evaluating RSRP for LTE antenna bar display
-           0. Strict threshold
-           1. Lenient threshold
-           2. Custom threshold
-    -->
-    <!--integer name="config_LTE_RSRP_threshold_type">2</integer-->
-
     <!-- Idle Receive current for wifi radio. 0 by default-->
-    <integer translatable="false" name="config_wifi_idle_receive_cur_ma">1</integer>
+    <integer translatable="false" name="config_wifi_idle_receive_cur_ma">0</integer>
 
     <!-- Rx current for wifi radio. 0 by default-->
-    <integer translatable="false" name="config_wifi_active_rx_cur_ma">90</integer>
+    <integer translatable="false" name="config_wifi_active_rx_cur_ma">0</integer>
 
     <!-- Tx current for wifi radio. 0 by default-->
-    <integer translatable="false" name="config_wifi_tx_cur_ma">80</integer>
+    <integer translatable="false" name="config_wifi_tx_cur_ma">0</integer>
 
     <!-- Operating volatage for wifi radio. 0 by default-->
-    <integer translatable="false" name="config_wifi_operating_voltage_mv">3600</integer>
-
-    <!-- Boolean indicating if current platform supports BLE peripheral mode -->
-    <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+    <integer translatable="false" name="config_wifi_operating_voltage_mv">0</integer>
 
     <!-- BurnIn protection. This should be enabled on devices that have OLED displays -->
     <bool name="config_enableBurnInProtection">true</bool>
@@ -264,17 +258,45 @@ Add a comment to this line
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOffByDefault">true</bool>
-
     
-<!-- Values for GPS configuration -->
+    <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">
         <item>XTRA_SERVER_1=https://glltos1.glpals.com/4day/v5/latest/lto2.dat</item>
         <item>XTRA_SERVER_2=https://glltos2.glpals.com/4day/v5/latest/lto2.dat</item>
     </string-array>
     
-<!-- Enable Always On Display -->
+    <!-- Enable Always On Display -->
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
     <bool name="config_displayBlanksAfterDoze">false</bool>
 
+    <!-- Configure mobile tcp buffer sizes in the form:
+         rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
+         If no value is found for the rat-name in use, the system default will be applied.
+    -->
+    <string-array name="config_mobile_tcp_buffers">
+        <item>umts:131072,262144,1452032,4096,16384,399360</item>
+        <item>hspa:131072,262144,2441216,4096,16384,399360</item>
+        <item>hsupa:131072,262144,2441216,4096,16384,399360</item>
+        <item>hsdpa:131072,262144,2441216,4096,16384,399360</item>
+        <item>hspap:131072,262144,2441216,4096,16384,399360</item>
+        <item>edge:16384,32768,131072,4096,16384,65536</item>
+        <item>gprs:4096,8192,24576,4096,8192,24576</item>
+        <item>1xrtt:16384,32768,131070,4096,16384,102400</item>
+        <item>evdo:131072,262144,1048576,4096,16384,524288</item>
+        <item>lte:524288,1048576,8388608,262144,524288,4194304</item>
+    </string-array>
+
+    <!-- Boolean indicating whether or not wifi should turn off when emergency call is made -->
+    <bool translatable="false" name="config_wifi_turn_off_during_emergency_call">true</bool>
+
+    <!-- Flag specifying whether VoLTE is availasble on device -->
+    <bool name="config_device_volte_available">true</bool>
+    <!-- Flag specifying whether VoLTE is available on device -->
+    <bool name="config_device_vt_available">true</bool>
+    <!-- Flag specifying whether WFC over IMS is availasble on device -->
+    <bool name="config_device_wfc_ims_available">true</bool>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
 </resources>
