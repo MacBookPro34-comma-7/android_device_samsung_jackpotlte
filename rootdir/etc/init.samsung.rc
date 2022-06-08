@@ -202,13 +202,6 @@ on post-fs-data
     restorecon_recursive /carrier
 # ] SEC_SELINUX_PORTING COMMON
 
-# LPM
-service lpm /system/bin/lpm
-    class sec-charger
-    user root
-    group system radio input
-    critical
-
 on boot
     # KNOX KAP
     chown system system /dev/knox_kap

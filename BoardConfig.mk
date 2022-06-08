@@ -108,7 +108,7 @@ TARGET_BOARD_PLATFORM_GPU := mali-g71
 TARGET_SOC := exynos7885
 
 # Root extra folders
-BOARD_ROOT_EXTRA_FOLDERS += /efs /mnt/vendor/efs /mnt/vendor/cpefs
+BOARD_ROOT_EXTRA_FOLDERS += /efs /cpefs
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Recovery
