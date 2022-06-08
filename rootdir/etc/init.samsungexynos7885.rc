@@ -166,7 +166,7 @@ on boot
     setprop wifi.interface wlan0
 
     # Allow to aceess /proc/cmdline for TelephonyManager
-    chown root radio /proc/cmdline
+    chown system radio /proc/cmdline
 
     # Allow to access debugfs for system:system
     chmod 0755 /sys/kernel/debug

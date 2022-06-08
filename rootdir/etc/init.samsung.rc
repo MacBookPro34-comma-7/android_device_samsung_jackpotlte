@@ -5,6 +5,9 @@ on init
     chmod 0660 /proc/avc_msg
 # ] SEC_SELINUX_PORTING_COMMON
 
+# FastCharge
+    chown system system /sys/class/sec/switch/afc_disable
+
 # Storage views to support runtime permissions
     mkdir /storage 0755 root root
 
