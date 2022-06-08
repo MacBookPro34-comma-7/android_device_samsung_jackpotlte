@@ -134,6 +134,12 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.2-service \
     android.hardware.graphics.mapper@2.0-impl
 
+# OMX
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0 \
+    android.hardware.media.omx@1.0-utils \
+    android.hardware.media.omx@1.0-service
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
@@ -153,17 +159,19 @@ PRODUCT_COPY_FILES += \
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-impl \
-    android.hardware.configstore@1.0-service
+    android.hardware.configstore@1.0-service \
+    android.hardware.configstore@1.1-impl \
+    android.hardware.configstore@1.1-service
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0 \
-    android.hardware.drm@1.1 \
-    libfwdlockengine \
-    libdrmclearkeyplugin \
-    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.2 \
+    android.hardware.drm@1.2-impl \
+    android.hardware.drm@1.2-service \
     android.hardware.drm@1.2-service.clearkey \
-    android.hardware.drm@1.0-impl
+    android.hardware.drm@1.2-service.widevine \
+    libfwdlockengine \
+    libdrmclearkeyplugin
 
 # FastCharge
 PRODUCT_PACKAGES += \
@@ -203,22 +211,23 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.0 \
     android.hardware.radio.config@1.1 \
     android.hardware.radio.config@1.2 \
+    android.hardware.radio@1.0 \
+    android.hardware.radio@1.1 \
     android.hardware.radio@1.2 \
-    android.hardware.radio@1.3 \
-    android.hardware.radio@1.4 \
     libxml2
 
 # Doze
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+# Wi-Fi
 PRODUCT_PACKAGES += \
-    macloader \
     wifiloader \
     hostapd \
     wificond \
     wifilogd \
     wlutil \
+    libwpa_hidl \
     libwpa_client \
     wpa_supplicant \
     android.hardware.wifi@1.0-service \
@@ -281,22 +290,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-# RIL
-PRODUCT_PACKAGES += \
-    android.hardware.radio.config@1.0 \
-    android.hardware.radio.config@1.1 \
-    android.hardware.radio.config@1.2 \
-    android.hardware.radio@1.2 \
-    android.hardware.radio@1.3 \
-    android.hardware.radio@1.4 \
-    libxml2
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0 \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
-    android.frameworks.sensorservice@1.0
 
 # TextClassifier
 PRODUCT_PACKAGES += \

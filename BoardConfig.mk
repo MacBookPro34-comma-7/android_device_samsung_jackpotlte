@@ -40,6 +40,9 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Disable Block based zips (makes other versions compatible)
+BOARD_DISABLE_BLOCK_BASED_OTA := true
+
 # Firmware
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -105,7 +108,7 @@ TARGET_BOARD_PLATFORM_GPU := mali-g71
 TARGET_SOC := exynos7885
 
 # Root extra folders
-BOARD_ROOT_EXTRA_FOLDERS += /mnt/vendor/efs /mnt/vendor/cpefs
+BOARD_ROOT_EXTRA_FOLDERS += /efs /mnt/vendor/efs /mnt/vendor/cpefs
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Recovery
@@ -128,14 +131,16 @@ TARGET_TAP_TO_WAKE_NODE := /sys/class/sec/tsp/dt2w_enable
 
 # WI-Fi
 BOARD_HAVE_SAMSUNG_WIFI := true
-WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 BOARD_WLAN_DEVICE                := slsi
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+WPA_SUPPLICANT_USE_HIDL          := true
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true # May not work on lineage-17.1.
 PRODUCT_CFI_INCLUDE_PATHS += hardware/samsung_slsi/scsc_wifibt/wpa_supplicant_lib
 
 # Audio
