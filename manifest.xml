@@ -7,6 +7,7 @@
             <name>IDevicesFactory</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IDevicesFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
@@ -16,6 +17,7 @@
             <name>IEffectsFactory</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IEffectsFactory/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.biometrics.fingerprint</name>
@@ -25,6 +27,7 @@
             <name>IBiometricsFingerprint</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.1::IBiometricsFingerprint/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
@@ -34,6 +37,7 @@
             <name>IBluetoothHci</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IBluetoothHci/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
@@ -43,6 +47,7 @@
             <name>ICameraProvider</name>
             <instance>legacy/0</instance>
         </interface>
+        <fqname>@2.4::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.configstore</name>
@@ -52,6 +57,7 @@
             <name>ISurfaceFlingerConfigs</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.1::ISurfaceFlingerConfigs/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.drm</name>
@@ -80,6 +86,7 @@
             <name>IGatekeeper</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IGatekeeper/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.gnss</name>
@@ -89,6 +96,7 @@
             <name>IGnss</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.1::IGnss/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
@@ -98,6 +106,7 @@
             <name>IAllocator</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IAllocator/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.composer</name>
@@ -107,6 +116,7 @@
             <name>IComposer</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.2::IComposer/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.mapper</name>
@@ -116,6 +126,7 @@
             <name>IMapper</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IMapper/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.health</name>
@@ -125,6 +136,7 @@
             <name>IHealth</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IHealth/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.keymaster</name>
@@ -134,6 +146,7 @@
             <name>IKeymasterDevice</name>
             <instance>default</instance>
         </interface>
+        <fqname>@3.0::IKeymasterDevice/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.light</name>
@@ -143,6 +156,7 @@
             <name>ILight</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::ILight/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
@@ -156,6 +170,8 @@
             <name>IOmxStore</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IOmx/default</fqname>
+        <fqname>@1.0::IOmxStore/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.memtrack</name>
@@ -165,6 +181,7 @@
             <name>IMemtrack</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IMemtrack/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.nfc</name>
@@ -174,6 +191,7 @@
             <name>INfc</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.1::INfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.power</name>
@@ -183,6 +201,7 @@
             <name>IPower</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IPower/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio</name>
@@ -216,6 +235,7 @@
             <name>ISensors</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ISensors/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
@@ -225,6 +245,7 @@
             <name>ISoundTriggerHw</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::ISoundTriggerHw/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.usb</name>
@@ -234,6 +255,7 @@
             <name>IUsb</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IUsb/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.vibrator</name>
@@ -243,15 +265,28 @@
             <name>IVibrator</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IVibrator/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.wifi.hostapd</name>
+        <transport>hwbinder</transport>
+        <interface>
+            <name>IHostapd</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IHostapd/default</fqname>
+        <fqname>@1.1::IHostapd/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.wifi.supplicant</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
         <interface>
             <name>ISupplicant</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ISupplicant/default</fqname>
+        <fqname>@1.1::ISupplicant/default</fqname>
+        <fqname>@1.2::ISupplicant/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lineage.livedisplay</name>
@@ -273,6 +308,10 @@
             <name>ISunlightEnhancement</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IAdaptiveBacklight/default</fqname>
+        <fqname>@2.0::IDisplayColorCalibration/default</fqname>
+        <fqname>@2.0::IReadingEnhancement/default</fqname>
+        <fqname>@2.0::ISunlightEnhancement/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lineage.power</name>
@@ -282,6 +321,7 @@
             <name>ILineagePower</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ILineagePower/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lineage.trust</name>
@@ -291,6 +331,7 @@
             <name>IUsbRestrict</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IUsbRestrict/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung.hardware.gnss</name>
@@ -300,6 +341,7 @@
             <name>ISecGnss</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ISecGnss/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung.hardware.nfc</name>
@@ -309,6 +351,7 @@
             <name>ISecNfc</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.1::ISecNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung.hardware.radio</name>
@@ -322,7 +365,7 @@
     </hal>
     <hal format="hidl">
         <name>vendor.samsung.hardware.radio.secbridge</name>
-	<transport>hwbinder</transport>
+        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>ISecBridge</name>
@@ -358,6 +401,7 @@
             <name>IExynosHWCServiceTW</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IExynosHWCServiceTW/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.samsung_slsi.hardware.configstore</name>
@@ -393,5 +437,7 @@
         </interface>
         <fqname>@1.0::ITeeRegistry/default</fqname>
     </hal>
+    <sepolicy>
+        <version>29.0</version>
+    </sepolicy>
 </manifest>
-

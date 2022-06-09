@@ -10,8 +10,6 @@ DEVICE_PATH := device/samsung/jackpotlte
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
-
 # device tree for boot image
 PRODUCT_HOST_PACKAGES += \
     dtbhtoolExynos
@@ -25,14 +23,14 @@ PRODUCT_PACKAGES += \
     init.vendor.rilcommon.rc \
     init.samsung.rc \
     init.samsungexynos7885.rc \
+    ueventd.samsungexynos7885.rc \
     init.samsungexynos7885.usb.rc \
     init.gps.rc \
     init.carrier.rc \
     init.power.rc \
-    mobicore.rc \
-    wifi_sec.rc \
+    init.wifi.rc \
     wifi_slsi.rc \
-    ueventd.samsungexynos7885.rc \
+    mobicore.rc \
     loggy.sh
 
 # Recovery
@@ -105,6 +103,8 @@ PRODUCT_PACKAGES += \
     libspeexresampler \
     libaudioutils \
     audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default \
     libtinycompress
 
 PRODUCT_COPY_FILES += \
@@ -220,6 +220,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
+PRODUCT_ENFORCE_RRO_TARGETS += *
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     wifiloader \
@@ -232,8 +240,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     android.hardware.wifi@1.0-service \
     android.hardware.wifi@1.0 \
-    android.hardware.wifi@1.0-impl \
-    TetheringConfigOverlay
+    android.hardware.wifi@1.0-impl
+
+# May not work on lineage-17.1.
+#    WifiOverlay \
+#    TetheringOverlay 
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
