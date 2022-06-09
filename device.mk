@@ -292,9 +292,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnfc-nci \
     libnfc_nci_jni \
+    SecureElement \
     NfcNci \
     Tag \
     com.android.nfc_extras \
+    android.hardware.secure_element@1.1 \
+    android.hardware.secure_element@1.1-service-disabled \
     libclang_rt.ubsan_standalone-aarch64-android
 
 # RenderScript
