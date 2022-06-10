@@ -105,6 +105,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
+    audio.bluetooth.default \
     libtinycompress
 
 PRODUCT_COPY_FILES += \
@@ -116,6 +117,18 @@ PRODUCT_COPY_FILES += \
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
+# ANT+
+PRODUCT_PACKAGES += \
+    com.dsi.ant.antradio_library \
+    AntHalService \
+    libantradio
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
 
 # Boot animation
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -309,6 +322,7 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0 \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
+    android.frameworks.sensorservice@1.0
 
 # TextClassifier
 PRODUCT_PACKAGES += \
