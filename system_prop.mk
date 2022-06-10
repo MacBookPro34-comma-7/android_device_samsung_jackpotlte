@@ -1,5 +1,7 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.arch=exynos7885 \
+    ro.kernel.qemu=0 \
+    ro.kernel.qemu.gles=1 \
     persist.demo.hdmirotationlock=false \
     dev.usbsetting.embedded=on \
     ro.opengles.version=196610 \
@@ -7,11 +9,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwc.winupdate=1 \
     debug.sf.disable_backpressure=1 \
     ro.hdcp2.rx=tz \
+    sys.config.phone_start_early=true \
+    ro.vendor.cscsupported=1 \
+    vendor.rild.libargs=-d /dev/umts_ipc0 \
     keyguard.no_require_sim=true \
     ro.carrier=unknown \
     vendor.rild.libpath=/vendor/lib64/libsec-ril.so \
     vendor.sec.rild.libpath=/vendor/lib64/libsec-ril.so \
-    vendor.sec.rild.libpath2=/vendor/lib64/libsec-ril.so \
     ro.dalvik.vm.native.bridge=0 \
     security.ASKS.policy_version=000000 \
     security.mdf.result=None \
@@ -45,18 +49,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cfg.dha_empty_max=30 \
     ro.cfg.dha_empty_init=30 \
     ro.config.fha_enable=true \
-    ro.cfg.enable_userspace_lmk=true \
-    ro.cfg.kill_heaviest_task=true \
-    ro.cfg.custom_tm_limit=1000 \
-    ro.cfg.custom_sw_limit=275 \
-    ro.cfg.enable_reentry_lmk=true \
-    sys.use_fifo_ui=0 \
     ro.config.systemaudiodebug=abox&codecdsp \
     ro.hardware.egl=mali \
-    ro.zygote.disable_gl_preload=true \
     ro.config.vc_call_vol_steps=5 \
     debug.sf.latch_unsignaled=1 \
-    debug.stagefright.ccodec=0 \
     qemu.hw.mainkeys=0
 
 # Wifi
@@ -69,3 +65,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
+# EFS
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.multisim.simslotcount=1 \
+    ro.vendor.multisim.simslotcount=1 \
+    persist.radio.multisim.config=ss
+
+# Tweaks
+PRODUCT_PROPERTY_OVERRIDES += \
+    gpu.fps=auto \
+    cpu.fps=auto \
+    boot.fps=60 \
+    sys.use_fifo_ui=0 \
+    ro.fps_enable=1 \
+    debug.sf.hw=1 \
+    ro.fps.capsmin=30fps \
+    ro.fps.capsmax=60fps \
+    persist.sys.dalvik.multithread=true \
+    persist.sys.dalvik.hyperthreading=true
