@@ -165,10 +165,12 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
+    /system/lib64/libbauthserver.so|libbauthtzcommon_shim.so \
     /system/lib/libcamera_client.so|libcamera_client_shim.so \
     /system/lib64/libcamera_client.so|libcamera_client_shim.so \
     /system/lib/libexynoscamera.so|libexynoscamera_shim.so \
     /system/lib64/libexynoscamera.so|libexynoscamera_shim.so
+
 
 # SELinux Policies
 # include device/lineage/sepolicy/exynos/sepolicy.mk
