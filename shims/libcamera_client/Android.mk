@@ -17,7 +17,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := CameraParameters.cpp
-
+LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE := libcamera_client_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
