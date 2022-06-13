@@ -538,7 +538,6 @@ on property:ro.debuggable=1
     write /sys/module/kgdboc/parameters/kgdboc ttyFIQ1
     write /sys/module/fiq_debugger/parameters/kgdb_enable 1
 
-
 # Change permission for A-Box firmware logs file & GPR dump
     chown audioserver system /sys/kernel/debug/abox/log-00
     chown audioserver system /sys/devices/platform/14a50000.abox/14a50000.abox:abox_debug@0/gpr
@@ -549,6 +548,9 @@ on property:ro.debuggable=1
     chown audioserver system /sys/devices/platform/14a50000.abox/service
     chown audioserver system /sys/kernel/debug/regmap/14a50000.abox/registers
 
+# a workaround for libashmemd_client.so
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
 service dhcpcd_wlan0 /vendor/bin/dhcpcd -aABDKL
         class main
