@@ -368,11 +368,6 @@ include $(DEVICE_PATH)/system_prop.mk
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
-# Embedded SU
-ifeq ($(WITH_SU),true)
-    SUPERUSER_EMBEDDED := true
-endif
-
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)
 
