@@ -82,6 +82,8 @@ echo "[*] File Uploading..."
 
 set +e
 git tag -d $FORMATTED_DATE 2> /dev/null
+git push --delete origin $FORMATTED_DATE 2> /dev/null
+
 git tag $FORMATTED_DATE
 git push origin $FORMATTED_DATE
 set -e
