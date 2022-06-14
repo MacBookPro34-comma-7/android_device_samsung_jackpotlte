@@ -362,6 +362,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.1-service.typec
 
+# OTA Update
+PRODUCT_PACKAGES += \
+    Updater
+
 # Properties
 include $(DEVICE_PATH)/system_prop.mk
 
