@@ -124,6 +124,10 @@ PRODUCT_PACKAGES += \
     AntHalService \
     libantradio
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/swcodec/ld.config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/swcodec/ld.config.txt
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \

@@ -550,7 +550,7 @@ on property:ro.debuggable=1
 
 # a workaround for libashmemd_client.so
 on property:apexd.status=ready
-    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+    mount none /vendor/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
 
 service dhcpcd_wlan0 /vendor/bin/dhcpcd -aABDKL
         class main
