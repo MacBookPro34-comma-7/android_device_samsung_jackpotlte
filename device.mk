@@ -317,6 +317,7 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     android.hardware.secure_element@1.1 \
     android.hardware.secure_element@1.1-service-disabled \
+    libclang_rt.ubsan_standalone-arm-android \
     libclang_rt.ubsan_standalone-aarch64-android
 
 # RenderScript
