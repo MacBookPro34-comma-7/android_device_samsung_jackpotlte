@@ -18,12 +18,13 @@ PRODUCT_HOST_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7885 \
     fstab.zram \
+    ueventd.vendor.rc \
+    ueventd.samsungexynos7885.rc \
     init.baseband.rc \
     init.vendor.rilchip.rc \
     init.vendor.rilcommon.rc \
     init.samsung.rc \
     init.samsungexynos7885.rc \
-    ueventd.samsungexynos7885.rc \
     init.samsungexynos7885.usb.rc \
     init.gps.rc \
     init.carrier.rc \
