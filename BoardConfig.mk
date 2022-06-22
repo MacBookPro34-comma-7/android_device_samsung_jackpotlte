@@ -58,7 +58,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
 
-# BOARD_KERNEL_CMDLINE := The bootloader ignores the cmdline from the boot.img
+BOARD_KERNEL_CMDLINE := loop.max_part=7
 BOARD_BOOT_HEADER_NAME := SRPQH21B008KU
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
