@@ -13,9 +13,9 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="MacBookPro34-comma-7/android_device_samsung_jackpotlte" path="device/samsung/jackpotlte" remote="github" revision="lineage-17.1" />
-  <project name="MacBookPro34-comma-7/android_vendor_samsung_jackpotlte" path="vendor/samsung/jackpotlte" remote="github" revision="lineage-17.1" />
-  <project name="MacBookPro34-comma-7/android_kernel_samsung_jackpotlte" path="kernel/samsung/jackpotlte" remote="github" revision="lineage-17.1" />
+  <project name="MacBookPro34-comma-7/android_device_samsung_jackpotlte" path="device/samsung/jackpotlte" remote="github" revision="lineage-18.1" />
+  <project name="MacBookPro34-comma-7/android_vendor_samsung_jackpotlte" path="vendor/samsung/jackpotlte" remote="github" revision="lineage-18.1" />
+  <project name="MacBookPro34-comma-7/android_kernel_samsung_jackpotlte" path="kernel/samsung/jackpotlte" remote="github" revision="lineage-18.1" />
   <project path="hardware/samsung" remote="github" name="LineageOS/android_hardware_samsung" />
   <project path="hardware/samsung/nfc" remote="github" name="LineageOS/android_hardware_samsung_nfc" revision="lineage-18.1" />
   <project path="hardware/samsung_slsi/scsc_wifibt/wifi_hal" remote="github" name="LineageOS/android_hardware_samsung_slsi_scsc_wifibt_wifi_hal" />
@@ -35,3 +35,4 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
      product_variables: {
          lineage: {
 ```
+
