@@ -259,11 +259,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     android.hardware.wifi@1.0-service \
     android.hardware.wifi@1.0 \
-    android.hardware.wifi@1.0-impl
-
-# May not work on lineage-17.1.
-#    WifiOverlay \
-#    TetheringOverlay 
+    android.hardware.wifi@1.0-impl \
+    WifiOverlay \
+    TetheringOverlay
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
