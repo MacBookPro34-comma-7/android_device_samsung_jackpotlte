@@ -106,14 +106,14 @@ on post-fs-data
 # ] SEC_SELINUX_PORTING_COMMON
 
     # h2k
-    mkdir /mnt/vendor/efs/cpk 0771 radio system
-    chmod 0644 /mnt/vendor/efs/redata.bin
-    chmod 0644 /mnt/vendor/efs/cpk/redata.bin
-    chown radio radio /mnt/vendor/efs/h2k.dat
-    chown radio radio /mnt/vendor/efs/cpk/h2k.dat
-    chmod 0644 /mnt/vendor/efs/h2k.dat
-    chmod 0644 /mnt/vendor/efs/cpk/h2k.dat
-    chown system system /mnt/vendor/efs/drm/h2k
+    mkdir /efs/cpk 0771 radio system
+    chmod 0644 /efs/redata.bin
+    chmod 0644 /efs/cpk/redata.bin
+    chown radio radio /efs/h2k.dat
+    chown radio radio /efs/cpk/h2k.dat
+    chmod 0644 /efs/h2k.dat
+    chmod 0644 /efs/cpk/h2k.dat
+    chown system system /efs/drm/h2k
 
     # icd
     chown system system /dev/icd
@@ -125,8 +125,8 @@ on post-fs-data
     restorecon /dev/icdr
 
     # mobicore
-    export MC_AUTH_TOKEN_PATH /mnt/vendor/efs
-    mkdir /mnt/vendor/efs/TEE  0770 radio system
+    export MC_AUTH_TOKEN_PATH /efs
+    mkdir /efs/TEE 0770 radio system
     chmod 0660 /dev/t-base-tui
     chown system system /dev/t-base-tui
     start mobicore
@@ -140,7 +140,7 @@ on post-fs-data
     mkdir /data/bcmnfc/param 0700 nfc nfc
 
     # Samsung Pay
-    #mkdir /mnt/vendor/efs/pfw_data 0760 spay spay
+    #mkdir /efs/pfw_data 0760 spay spay
 
     # MST/NFC Switch
     #chown spay system /dev/mst_ctrl
@@ -201,7 +201,7 @@ on post-fs-data
     mkdir /data/.fido 0700 system system
 	
 # [ SEC_SELINUX_PORTING COMMON
-    restorecon_recursive /mnt/vendor/efs
+    restorecon_recursive /efs
     restorecon_recursive /carrier
 # ] SEC_SELINUX_PORTING COMMON
 
@@ -211,14 +211,14 @@ on boot
     chmod 0660 /dev/knox_kap
 
     # permissions for bluetooth.
-    mkdir /mnt/vendor/efs/bluetooth 0775 radio system
-    chown radio system /mnt/vendor/efs/bluetooth
-    chmod 0775 /mnt/vendor/efs/bluetooth
+    mkdir /efs/bluetooth 0775 radio system
+    chown radio system /efs/bluetooth
+    chmod 0775 /efs/bluetooth
 
-    setprop ro.bt.bdaddr_path "/mnt/vendor/efs/bluetooth/bt_addr"
+    setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
     chown bluetooth bluetooth ro.bt.bdaddr_path
-    chown radio bluetooth /mnt/vendor/efs/bluetooth/bt_addr
-    chmod 0640 /mnt/vendor/efs/bluetooth/bt_addr
+    chown radio bluetooth /efs/bluetooth/bt_addr
+    chmod 0640 /efs/bluetooth/bt_addr
     chmod 0660 /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -238,7 +238,7 @@ on boot
     mkdir /dev/socket/mlaudio 0770 audioserver system
 
     # MSP FactoryApp
-    mkdir /mnt/vendor/efs/FactoryApp 0775 system system
+    mkdir /efs/FactoryApp 0775 system system
 
     # Switch Device
     chown system radio /sys/class/sec/switch/usb_sel
@@ -319,19 +319,19 @@ on boot
     chmod 0664 /sys/class/input_booster/touchkey/time
 
  # permission for CHARGING
-   mkdir /mnt/vendor/efs/Battery 0775 radio system
-   chown radio system /mnt/vendor/efs/Battery
-   chmod 0775 /mnt/vendor/efs/Battery
-   copy /system/vendor/firmware/battery_data.dat /mnt/vendor/efs/Battery/battery_data.dat
-   chmod 0400 /mnt/vendor/efs/Battery/battery_data.dat
-   write /sys/class/power_supply/battery/batt_update_data "/mnt/vendor/efs/Battery/battery_data.dat"
+   mkdir /efs/Battery 0775 radio system
+   chown radio system /efs/Battery
+   chmod 0775 /efs/Battery
+   copy /system/vendor/firmware/battery_data.dat /efs/Battery/battery_data.dat
+   chmod 0400 /efs/Battery/battery_data.dat
+   write /sys/class/power_supply/battery/batt_update_data "/efs/Battery/battery_data.dat"
    chown system radio /sys/class/power_supply/battery/batt_ext_dev_chg
-   chown system radio /mnt/vendor/efs/Battery/fg_full_voltage
+   chown system radio /efs/Battery/fg_full_voltage
    chown system radio /sys/class/power_supply/battery/fg_full_voltage
    chown system radio /sys/class/power_supply/battery/batt_self_discharging_control
    chown system radio /sys/class/power_supply/battery/batt_inbat_wireless_cs100
    chown system radio /sys/class/power_supply/battery/batt_swelling_control
-   chmod 0664 /mnt/vendor/efs/Battery/fg_full_voltage
+   chmod 0664 /efs/Battery/fg_full_voltage
    chmod 0664 /sys/class/power_supply/battery/fg_full_voltage
    chown system radio /sys/class/power_supply/battery/batt_reset_soc
    chown system radio /sys/class/power_supply/battery/batt_slate_mode
@@ -464,14 +464,14 @@ on boot
    chmod 0660 /sys/class/power_supply/battery/cisd_data
    chown system radio /sys/class/power_supply/battery/cisd_data_json
    chmod 0660 /sys/class/power_supply/battery/cisd_data_json
-   chown system system /mnt/vendor/efs/FactoryApp/cisd_fullcaprep_max
-   chmod 0640 /mnt/vendor/efs/FactoryApp/cisd_fullcaprep_max
+   chown system system /efs/FactoryApp/cisd_fullcaprep_max
+   chmod 0640 /efs/FactoryApp/cisd_fullcaprep_max
    chown system radio /sys/class/power_supply/battery/cisd_data_efs_path
    chmod 0660 /sys/class/power_supply/battery/cisd_data_efs_path
-   chown system system /mnt/vendor/efs/FactoryApp/cisd_data
-   chmod 0640 /mnt/vendor/efs/FactoryApp/cisd_data
-   chown radio system /mnt/vendor/efs/Battery/batt_capacity_max
-   chmod 0664 /mnt/vendor/efs/Battery/batt_capacity_max
+   chown system system /efs/FactoryApp/cisd_data
+   chmod 0640 /efs/FactoryApp/cisd_data
+   chown radio system /efs/Battery/batt_capacity_max
+   chmod 0664 /efs/Battery/batt_capacity_max
     # OTG Test
     chown system radio /sys/class/host_notify/usb_otg/booster
     chmod 0664 /sys/class/host_notify/usb_otg/booster
@@ -507,8 +507,8 @@ on boot
     chown system radio /sys/class/sensors/accelerometer_sensor/vendor
     chown system radio /sys/class/sensors/accelerometer_sensor/name
     chown system radio /sys/class/sensors/accelerometer_sensor/dhr_sensor_info
-    chown system system /mnt/vendor/efs/calibration_data
-    chmod 0666 /mnt/vendor/efs/calibration_data
+    chown system system /efs/calibration_data
+    chmod 0666 /efs/calibration_data
 # Proximity_sensor
     chown system radio /sys/class/sensors/proximity_sensor/state
     chown system radio /sys/class/sensors/proximity_sensor/raw_data
@@ -594,8 +594,8 @@ on boot
     chown system system /sys/class/timed_output/vibrator/haptic_engine
 
 #Store Gyro cal data
-    chown system system /mnt/vendor/efs/FactoryApp/gyro_cal_data
-    chmod 0660 /mnt/vendor/efs/FactoryApp/gyro_cal_data
+    chown system system /efs/FactoryApp/gyro_cal_data
+    chmod 0660 /efs/FactoryApp/gyro_cal_data
 
 # Assign TCP buffer thresholds to be ceiling value of technology maximums
 # Increased technology maximums should be reflected here.
@@ -658,22 +658,22 @@ on charger
     chmod 0660 /sys/class/power_supply/battery/cisd_fullcaprep_max
     chown system radio /sys/class/power_supply/battery/cisd_data
     chmod 0660 /sys/class/power_supply/battery/cisd_data
-    chown system system /mnt/vendor/efs/FactoryApp/cisd_fullcaprep_max
-    chmod 0640 /mnt/vendor/efs/FactoryApp/cisd_fullcaprep_max
+    chown system system /efs/FactoryApp/cisd_fullcaprep_max
+    chmod 0640 /efs/FactoryApp/cisd_fullcaprep_max
     chown system radio /sys/class/power_supply/battery/cisd_data_efs_path
     chmod 0660 /sys/class/power_supply/battery/cisd_data_efs_path
-    chown system system /mnt/vendor/efs/FactoryApp/cisd_data
-    chmod 0640 /mnt/vendor/efs/FactoryApp/cisd_data
-    chown radio system /mnt/vendor/efs
-    chmod 0771 /mnt/vendor/efs
-    mkdir /mnt/vendor/efs/Battery 0775 radio system
-    chown radio system /mnt/vendor/efs/Battery
-    chmod 0775 /mnt/vendor/efs/Battery
-    chown radio system /mnt/vendor/efs/Battery/batt_capacity_max
-    chmod 0664 /mnt/vendor/efs/Battery/batt_capacity_max
-    copy /system/vendor/firmware/battery_data.dat /mnt/vendor/efs/Battery/battery_data.dat
-    chmod 0400 /mnt/vendor/efs/Battery/battery_data.dat
-    write /sys/class/power_supply/battery/batt_update_data "/mnt/vendor/efs/Battery/battery_data.dat"
+    chown system system /efs/FactoryApp/cisd_data
+    chmod 0640 /efs/FactoryApp/cisd_data
+    chown radio system /efs
+    chmod 0771 /efs
+    mkdir /efs/Battery 0775 radio system
+    chown radio system /efs/Battery
+    chmod 0775 /efs/Battery
+    chown radio system /efs/Battery/batt_capacity_max
+    chmod 0664 /efs/Battery/batt_capacity_max
+    copy /system/vendor/firmware/battery_data.dat /efs/Battery/battery_data.dat
+    chmod 0400 /efs/Battery/battery_data.dat
+    write /sys/class/power_supply/battery/batt_update_data "/efs/Battery/battery_data.dat"
 
 #service drm /system/bin/drmserver
 #    class main

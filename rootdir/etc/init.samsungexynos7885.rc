@@ -572,9 +572,6 @@ on fs
     restorecon_recursive /cpefs
     restorecon_recursive /mnt/vendor/persist
 
-    symlink /efs /mnt/vendor/efs
-    symlink /cpefs /mnt/vendor/cpefs
-
     mkdir /mnt/vendor/persist/data/sfs 0700 system system
     mkdir /mnt/vendor/persist/data/tz 0700 system system
 
