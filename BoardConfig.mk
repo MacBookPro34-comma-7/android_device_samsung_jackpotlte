@@ -165,6 +165,9 @@ TARGET_SEC_FP_USES_PERCENTAGE_SAMPLES := true
 # HIDL Manifest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 
+# VINTF
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/lib64/libbauthserver.so|libbauthtzcommon_shim.so \
