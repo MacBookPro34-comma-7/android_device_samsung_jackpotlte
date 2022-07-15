@@ -132,10 +132,6 @@ PRODUCT_PACKAGES += \
     AntHalService \
     libantradio
 
-# APEX
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/swcodec/ld.config.txt:$(TARGET_COPY_OUT_VENDOR)/etc/swcodec/ld.config.txt
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
@@ -156,7 +152,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.2-service \
+    android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl
 
 # OMX
@@ -187,7 +183,8 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-impl \
     android.hardware.configstore@1.0-service \
     android.hardware.configstore@1.1-impl \
-    android.hardware.configstore@1.1-service
+    android.hardware.configstore@1.1-service \
+    vndservicemanager
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -240,7 +237,8 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
     android.hardware.radio@1.1 \
     android.hardware.radio@1.2 \
-    libxml2
+    libxml2 \
+    libprotobuf-cpp-full
 
 # Doze
 PRODUCT_PACKAGES += \
