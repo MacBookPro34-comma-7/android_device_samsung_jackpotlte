@@ -237,6 +237,10 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
     android.hardware.radio@1.1 \
     android.hardware.radio@1.2 \
+    android.hardware.radio@1.3 \
+    android.hardware.radio@1.4 \
+    android.hardware.radio@1.5 \
+    android.hardware.radio.deprecated@1.0 \
     libxml2 \
     libprotobuf-cpp-full
 
@@ -319,10 +323,14 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     com.android.nfc_extras \
-    android.hardware.secure_element@1.1 \
-    android.hardware.secure_element@1.1-service-disabled \
     libclang_rt.ubsan_standalone-arm-android \
     libclang_rt.ubsan_standalone-aarch64-android
+
+# Secure Element
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.1 \
+    android.hardware.secure_element@1.2
 
 # RenderScript
 PRODUCT_PACKAGES += \
