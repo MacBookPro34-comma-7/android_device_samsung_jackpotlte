@@ -175,6 +175,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libexynoscamera.so|libexynoscamera_shim.so \
     /system/vendor/lib/libsec-ril.so|libsec-ril_shim.so \
     /system/vendor/lib64/libsec-ril.so|libsec-ril_shim.so \
+    /system/vendor/lib/libvideobeauty_interface.so|libvideobeauty_interface_shim.so \
     /system/lib/libcamera_client.so|libcamera_client_shim.so \
     /system/lib64/libcamera_client.so|libcamera_client_shim.so
 
