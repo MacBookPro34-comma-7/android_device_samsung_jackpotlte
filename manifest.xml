@@ -1,4 +1,4 @@
-<manifest version="1.0" type="device">
+<manifest version="2.0" type="device">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -206,18 +206,21 @@
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>slot1</instance>
+        </interface>
+        <interface>
+            <name>ISap</name>
+            <instance>slot1</instance>
+        </interface>
+        <fqname>@1.2::IRadio/slot1</fqname>
         <fqname>@1.2::ISap/slot1</fqname>
-        <fqname>@1.5::IRadio/slot1</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio.config</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IRadioConfig</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.1::IRadioConfig/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.renderscript</name>
@@ -230,37 +233,19 @@
         <fqname>@1.0::IDevice/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.secure_element</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>ISecureElement</name>
-            <instance>SIM1</instance>
-        </interface>
-        <fqname>@1.2::ISecureElement/SIM1</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.sensors</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>ISensors</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
             <name>ISensorManager</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.0::ISensors/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.thermal</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
         <interface>
-            <name>IThermal</name>
+            <name>ISensors</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::ISensorManager/default</fqname>
+        <fqname>@1.0::ISensors/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
@@ -271,6 +256,16 @@
             <instance>default</instance>
         </interface>
         <fqname>@2.0::ISoundTriggerHw/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IThermal</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IThermal/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.usb</name>
@@ -299,7 +294,6 @@
             <name>IHostapd</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.0::IHostapd/default</fqname>
         <fqname>@1.1::IHostapd/default</fqname>
     </hal>
     <hal format="hidl">
@@ -309,8 +303,6 @@
             <name>ISupplicant</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.0::ISupplicant/default</fqname>
-        <fqname>@1.1::ISupplicant/default</fqname>
         <fqname>@1.2::ISupplicant/default</fqname>
     </hal>
     <hal format="hidl">
