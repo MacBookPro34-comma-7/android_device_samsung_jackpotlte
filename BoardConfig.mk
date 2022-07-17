@@ -170,11 +170,13 @@ PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /system/lib64/libbauthserver.so|libbauthtzcommon_shim.so \
+    /system/vendor/lib64/libbauthserver.so|libbauthtzcommon_shim.so \
+    /system/vendor/lib/libexynoscamera.so|libexynoscamera_shim.so \
+    /system/vendor/lib64/libexynoscamera.so|libexynoscamera_shim.so \
+    /system/vendor/lib/libsec-ril.so|libsec-ril_shim.so \
+    /system/vendor/lib64/libsec-ril.so|libsec-ril_shim.so \
     /system/lib/libcamera_client.so|libcamera_client_shim.so \
-    /system/lib64/libcamera_client.so|libcamera_client_shim.so \
-    /system/lib/libexynoscamera.so|libexynoscamera_shim.so \
-    /system/lib64/libexynoscamera.so|libexynoscamera_shim.so
+    /system/lib64/libcamera_client.so|libcamera_client_shim.so
 
 
 # SELinux Policies

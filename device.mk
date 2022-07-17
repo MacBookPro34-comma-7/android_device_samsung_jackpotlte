@@ -372,7 +372,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libexynoscamera_shim \
     libcamera_client_shim \
-    libbauthtzcommon_shim
+    libbauthtzcommon_shim \
+    libsec-ril_shim
 
 # stagefright
 PRODUCT_PACKAGES += \
