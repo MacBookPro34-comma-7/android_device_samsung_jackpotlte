@@ -53,7 +53,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.egl=mali \
     ro.config.vc_call_vol_steps=5 \
     debug.sf.latch_unsignaled=1 \
-    qemu.hw.mainkeys=0
+    qemu.hw.mainkeys=0 \
+    persist.sys.strictmode.disable=true
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
