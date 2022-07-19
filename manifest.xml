@@ -308,7 +308,7 @@
     <hal format="hidl">
         <name>vendor.lineage.livedisplay</name>
         <transport>hwbinder</transport>
-        <version>2.0</version>
+        <version>2.1</version>
         <interface>
             <name>IAdaptiveBacklight</name>
             <instance>default</instance>
@@ -325,10 +325,15 @@
             <name>ISunlightEnhancement</name>
             <instance>default</instance>
         </interface>
-        <fqname>@2.0::IAdaptiveBacklight/default</fqname>
-        <fqname>@2.0::IDisplayColorCalibration/default</fqname>
-        <fqname>@2.0::IReadingEnhancement/default</fqname>
-        <fqname>@2.0::ISunlightEnhancement/default</fqname>
+        <interface>
+            <name>IDisplayModes</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IAdaptiveBacklight/default</fqname>
+        <fqname>@2.1::IDisplayColorCalibration/default</fqname>
+        <fqname>@2.1::IDisplayModes/default</fqname>
+        <fqname>@2.1::IReadingEnhancement/default</fqname>
+        <fqname>@2.1::ISunlightEnhancement/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.lineage.power</name>

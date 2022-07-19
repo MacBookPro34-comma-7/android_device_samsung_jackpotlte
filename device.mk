@@ -216,7 +216,7 @@ PRODUCT_COPY_FILES += \
 
 # Livedisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.universal7885
+    vendor.lineage.livedisplay@2.1-service.universal7885
 
 # LPM
 PRODUCT_PACKAGES += \

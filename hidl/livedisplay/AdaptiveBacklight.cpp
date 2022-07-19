@@ -28,7 +28,7 @@ using android::base::WriteStringToFile;
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_0 {
+namespace V2_1 {
 namespace implementation {
 
 static constexpr const char* kBacklightPath = "/sys/class/lcd/panel/power_reduce";
@@ -49,7 +49,7 @@ Return<bool> AdaptiveBacklight::setEnabled(bool enabled) {
 }
 
 }  // namespace implementation
-}  // namespace V2_0
+}  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor

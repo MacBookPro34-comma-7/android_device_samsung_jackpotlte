@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.livedisplay@2.0-service.universal7885"
+#define LOG_TAG "vendor.lineage.livedisplay@2.1-service.universal7885"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
@@ -22,6 +22,7 @@
 
 #include "AdaptiveBacklight.h"
 #include "DisplayColorCalibration.h"
+#include "DisplayModes.h"
 #include "ReadingEnhancement.h"
 #include "SunlightEnhancement.h"
 
@@ -31,18 +32,21 @@ using android::OK;
 using android::sp;
 using android::status_t;
 
-using vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight;
-using vendor::lineage::livedisplay::V2_0::IDisplayColorCalibration;
-using vendor::lineage::livedisplay::V2_0::implementation::AdaptiveBacklight;
-using vendor::lineage::livedisplay::V2_0::implementation::DisplayColorCalibration;
-using vendor::lineage::livedisplay::V2_0::implementation::ReadingEnhancement;
-using vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
-using vendor::lineage::livedisplay::V2_0::IReadingEnhancement;
-using vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
+using vendor::lineage::livedisplay::V2_1::IAdaptiveBacklight;
+using vendor::lineage::livedisplay::V2_1::IDisplayColorCalibration;
+using vendor::lineage::livedisplay::V2_1::IDisplayModes;
+using vendor::lineage::livedisplay::V2_1::IReadingEnhancement;
+using vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
+using vendor::lineage::livedisplay::V2_1::implementation::AdaptiveBacklight;
+using vendor::lineage::livedisplay::V2_1::implementation::DisplayColorCalibration;
+using vendor::lineage::livedisplay::V2_1::implementation::DisplayModes;
+using vendor::lineage::livedisplay::V2_1::implementation::ReadingEnhancement;
+using vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
 int main() {
     sp<IAdaptiveBacklight> adaptiveBacklight;
     sp<IDisplayColorCalibration> displayColorCalibration;
+    sp<IDisplayModes> displayModes;
     sp<IReadingEnhancement> readingEnhancement;
     sp<ISunlightEnhancement> sunlightEnhancement;
     status_t status;
@@ -59,6 +63,13 @@ int main() {
     displayColorCalibration = new DisplayColorCalibration();
     if (displayColorCalibration == nullptr) {
         LOG(ERROR) << "Can not create an instance of LiveDisplay HAL DisplayColorCalibration "
+                      "Iface, exiting.";
+        goto shutdown;
+    }
+
+    displayModes = new DisplayModes();
+    if (displayModes == nullptr) {
+        LOG(ERROR) << "Can not create an instance of LiveDisplay HAL DisplayModes "
                       "Iface, exiting.";
         goto shutdown;
     }
@@ -87,6 +98,14 @@ int main() {
     }
 
     status = displayColorCalibration->registerAsService();
+    if (status != OK) {
+        LOG(ERROR)
+            << "Could not register service for LiveDisplay HAL DisplayColorCalibration Iface ("
+            << status << ")";
+        goto shutdown;
+    }
+
+    status = displayModes->registerAsService();
     if (status != OK) {
         LOG(ERROR)
             << "Could not register service for LiveDisplay HAL DisplayColorCalibration Iface ("

@@ -13,14 +13,15 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.livedisplay@2.0-service.universal7885",
-    init_rc: ["vendor.lineage.livedisplay@2.0-service.universal7885.rc"],
+    name: "vendor.lineage.livedisplay@2.1-service.universal7885",
+    init_rc: ["vendor.lineage.livedisplay@2.1-service.universal7885.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
     srcs: [
         "AdaptiveBacklight.cpp",
         "DisplayColorCalibration.cpp",
+	"DisplayModes.cpp",
         "ReadingEnhancement.cpp",
         "SunlightEnhancement.cpp",
         "service.cpp",
@@ -31,6 +32,7 @@ cc_binary {
         "libdl",
         "libhidlbase",
         "libutils",
-        "vendor.lineage.livedisplay@2.0",
+	"vendor.lineage.livedisplay@2.0",
+        "vendor.lineage.livedisplay@2.1",
     ],
 }
