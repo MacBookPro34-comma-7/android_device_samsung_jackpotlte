@@ -612,14 +612,18 @@ on fs
     chown system radio /sys/class/lcd/panel/poc_enabled
 
 # Permissions for MDNIE
+    chown system media_rw /sys/class/mdnie/mdnie/bypass
     chown system media_rw /sys/class/mdnie/mdnie/mode
     chown system media_rw /sys/class/mdnie/mdnie/scenario
     chown system system /sys/class/mdnie/mdnie/accessibility
     chown system system /sys/class/mdnie/mdnie/sensorRGB
     chown system system /sys/class/mdnie/mdnie/mdnie_ldu
-    chown system system /sys/class/mdnie/mdnie/night_mode
+    chown system system /sys/class/mdnie/mdnie/night_moda
+    chown system system /sys/class/mdnie/mdnie/color_lense
     chown system system /sys/class/mdnie/mdnie/whiteRGB
     chown system system /sys/class/mdnie/mdnie/light_notification
+    chmod 0660 /sys/class/mdnie/mdnie/lux
+    chown system system /sys/class/mdnie/mdnie/lux
 
 # Permissions for System LSI NFC
 # NFC : Permissions for NFC
