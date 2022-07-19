@@ -205,6 +205,10 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.gatekeeper@1.0-impl
 
+# GloveMode
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.universal7885
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
