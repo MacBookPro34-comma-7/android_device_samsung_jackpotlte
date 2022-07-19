@@ -69,7 +69,7 @@ Return<void> DisplayModes::getDisplayModes(getDisplayModes_cb resultCb) {
     if (!maxModeFile.fail()) {
         maxModeFile >> value;
     } else {
-        value = kModeMap.size() - 1;
+        value = kModeMap.size();
     }
     for (const auto& entry : kModeMap) {
         if (entry.first < value) modes.push_back({entry.first, entry.second});
