@@ -1,6 +1,10 @@
 libDLInterface.camera.samsung.so
 libMcClient.so
+libGLES_mali.so
 libOpenCL.so
+libOpenCL.so.1
+libOpenCL.so.1.1
+vulkan.exynos5.so
 libOpenCv.camera.samsung.so
 libPortraitSolution.camera.samsung.so
 libQjpeg.so
