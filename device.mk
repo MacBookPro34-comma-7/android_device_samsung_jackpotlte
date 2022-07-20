@@ -220,7 +220,8 @@ PRODUCT_COPY_FILES += \
 
 # Livedisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service.universal7885
+    vendor.lineage.livedisplay@2.1-service.universal7885 \
+    AdvancedDisplay
 
 # LPM
 PRODUCT_PACKAGES += \
@@ -298,11 +299,11 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.samsung \
+    android.hardware.light@2.0-service.samsung
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.samsung \
+    android.hardware.biometrics.fingerprint@2.1-service.samsung
 
 # LPM
 PRODUCT_PACKAGES += \
