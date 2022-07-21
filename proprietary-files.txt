@@ -1,15 +1,14 @@
 # product
 product/lib64/libaptX_encoder.so
+product/lib64/libaptXHD_encoder.so
 product/lib64/libaptX-1.0.16-rel-Android21-arm64.so
+
 
 # etc
 etc/nfcee_access.xml
 etc/libnfc-nci.conf
-etc/gps_debug.conf
-etc/mixer_gains.xml
 etc/nfc_key
 etc/media_codecs_sec_primary.xml
-etc/media_profiles_V1_0.dtd
 etc/audio_effects.conf
 etc/media_codecs_sec_video_primary.xml
 etc/apns-conf.xml
@@ -18,7 +17,6 @@ etc/media_codecs_ddp.xml
 etc/media_codecs_sec_ape.xml
 etc/media_codecs_sec_secondary.xml
 etc/init/init.gpscommon.rc
-etc/mixer_paths.xml
 etc/media_codecs_ac4.xml
 
 # lib
@@ -70,14 +68,11 @@ vendor/firmware/fimc_is_lib.bin
 
 # vendor/etc
 vendor/etc/audio_effects.xml
-vendor/etc/audio_policy_volumes.xml
 vendor/etc/media_codecs_performance.xml
-vendor/etc/default_volume_tables.xml
 vendor/etc/media_codecs_google_video_le.xml
 vendor/etc/audio_effects_common.conf
 vendor/etc/gnss/ca.pem
 vendor/etc/gnss/gps.cfg
-vendor/etc/audio_policy_configuration.xml
 vendor/etc/nfc/sec_s3nrn81_rfreg.bin
 vendor/etc/media_codecs.xml
 vendor/etc/wifi/mx140_t_wlan.hcf
@@ -150,7 +145,6 @@ vendor/lib/libcsc.so
 vendor/lib/libmpp.so
 vendor/lib/libuniplugin.so
 vendor/lib/libacryl.so
-vendor/lib/camera.device@3.5-impl.so
 vendor/lib/lib_SoundAlive_play_plus_ver210.so
 vendor/lib/librecordalive.so
 vendor/lib/libsecaudioinfo.so
@@ -172,9 +166,10 @@ vendor/lib/libwifi-hal.so
 vendor/lib/libgf_in_system_lib.so
 vendor/lib/libril.so
 vendor/lib/libexynoscamera3.so
+vendor/lib/lib_SamsungRec_06005.so
 vendor/lib/libfloatingfeature.so
+vendor/lib/libtinyalsa.so
 vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/camera.device@3.4-external-impl.so
 vendor/lib/libegis_fp_normal_sensor_test.so
 vendor/lib/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
 vendor/lib/libsecaudiocoreutils.so
@@ -188,7 +183,6 @@ vendor/lib/libremosaiclib.so
 vendor/lib/libuniapi.so
 vendor/lib/egl/libGLES_mali.so
 vendor/lib/libexynoscamera.so
-vendor/lib/camera.device@3.2-impl.so
 vendor/lib/libExynosHWCService.so
 vendor/lib/libexynosscaler.so
 vendor/lib/libMcRegistry.so
@@ -239,13 +233,10 @@ vendor/lib/libstagefright_omx_vendor.so
 vendor/lib/libsynaFpSensorTestNwd.so
 vendor/lib/lib_SoundAlive_3DPosition_ver202.so
 vendor/lib/libsmartfitting_interface.so
-vendor/lib/camera.device@3.4-impl.so
 vendor/lib/libstagefright_omx_utils.so
 vendor/lib/libsensorlistener.so
 vendor/lib/libsaiv_BeautySolutionVideo.so
-vendor/lib/lib_SamsungRec_06004.so
 vendor/lib/libSoundAlive_VSP_ver315b_arm.so
-vendor/lib/camera.device@3.5-external-impl.so
 vendor/lib/libbauthtzcommon.so
 vendor/lib/libhwc2on1adapter.so
 vendor/lib/libstagefright_soft_g711dec.so
@@ -257,18 +248,15 @@ vendor/lib/hw/thermal.universal7885.so
 vendor/lib/hw/hwcomposer.exynos7885.so
 vendor/lib/hw/sound_trigger.primary.universal7885.so
 vendor/lib/hw/camera.vendor.exynos7885.so
-vendor/lib/hw/audio.primary.universal7885.so
 vendor/lib/hw/lights.exynos5.so
 vendor/lib/hw/audio.playback_record.default.so
 vendor/lib/hw/sensors.universal7885.so
-vendor/lib/hw/audio.a2dp.default.so
+vendor/lib/hw/audio.primary.exynos7885.so
 vendor/lib/hw/gatekeeper.exynos7885.so
 vendor/lib/hw/gralloc.exynos5.so
 vendor/lib/hw/memtrack.universal7885.so
 vendor/lib/libhifills_interface.so
 vendor/lib/libbauthserver.so
-vendor/lib/camera.device@3.3-impl.so
-vendor/lib/camera.device@1.0-impl.so
 vendor/lib/libOpenCv.camera.samsung.so
 vendor/lib/libSEF.quram.so
 vendor/lib/libvideobeauty_interface.so
@@ -319,7 +307,6 @@ vendor/lib64/libcsc.so
 vendor/lib64/libmpp.so
 vendor/lib64/libuniplugin.so
 vendor/lib64/libacryl.so
-vendor/lib64/camera.device@3.5-impl.so
 vendor/lib64/libsxqk_skia.so
 vendor/lib64/libsecaudioinfo.so
 vendor/lib64/libqfp_sensortest.so
@@ -341,8 +328,8 @@ vendor/lib64/libgf_in_system_lib.so
 vendor/lib64/libril.so
 vendor/lib64/libexynoscamera3.so
 vendor/lib64/libfloatingfeature.so
+vendor/lib64/libtinyalsa.so
 vendor/lib64/nfc_nci_sec.so
-vendor/lib64/camera.device@3.4-external-impl.so
 vendor/lib64/libegis_fp_normal_sensor_test.so
 vendor/lib64/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
 vendor/lib64/libexynosdisplay.so
@@ -356,7 +343,6 @@ vendor/lib64/android.hardware.nfc@1.1.so
 vendor/lib64/vendor.samsung.hardware.nfc@1.1.so
 vendor/lib64/egl/libGLES_mali.so
 vendor/lib64/libexynoscamera.so
-vendor/lib64/camera.device@3.2-impl.so
 vendor/lib64/libExynosHWCService.so
 vendor/lib64/libexynosscaler.so
 vendor/lib64/vendor.samsung.hardware.radio.configsvc@1.0_vendor.so
@@ -391,10 +377,8 @@ vendor/lib64/soundfx/libaudioeffectoffload.so
 vendor/lib64/soundfx/libswdap.so
 vendor/lib64/libsynaFpSensorTestNwd.so
 vendor/lib64/libsmartfitting_interface.so
-vendor/lib64/camera.device@3.4-impl.so
 vendor/lib64/libsensorlistener.so
 vendor/lib64/libsaiv_BeautySolutionVideo.so
-vendor/lib64/camera.device@3.5-external-impl.so
 vendor/lib64/libbauthtzcommon.so
 vendor/lib64/libhwc2on1adapter.so
 vendor/lib64/lib_SoundAlive_SRC384_ver320.so
@@ -415,8 +399,6 @@ vendor/lib64/android.hardware.nfc@1.0.so
 vendor/lib64/libkeymaster_helper.so
 vendor/lib64/libhifills_interface.so
 vendor/lib64/libbauthserver.so
-vendor/lib64/camera.device@3.3-impl.so
-vendor/lib64/camera.device@1.0-impl.so
 vendor/lib64/libOpenCv.camera.samsung.so
 vendor/lib64/libreference-ril.so
 vendor/lib64/libSEF.quram.so
