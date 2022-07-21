@@ -54,7 +54,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.vc_call_vol_steps=5 \
     debug.sf.latch_unsignaled=1 \
     qemu.hw.mainkeys=0 \
-    persist.sys.strictmode.disable=true
+    persist.sys.strictmode.disable=true \
+    dalvik.vm.dex2oat64.enabled=true
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
