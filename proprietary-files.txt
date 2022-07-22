@@ -106,7 +106,9 @@ vendor/lib64/vendor.samsung_slsi.hardware.configstore@1.0.so
 vendor/lib64/vendor.samsung_slsi.hardware.configstore-utils.so
 
 # DRM
-vendor/bin/hw/android.hardware.drm@1.1-service.widevine
+vendor/bin/move_widevine_data.sh
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib/liboemcrypto.so
 vendor/lib/libomafldrm.so
 vendor/lib/libwvhidl.so
