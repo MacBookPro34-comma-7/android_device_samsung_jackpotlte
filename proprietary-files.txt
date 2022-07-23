@@ -180,6 +180,7 @@ vendor/lib/libhwc2on1adapter.so
 vendor/lib/libhwc2onfbadapter.so
 vendor/lib/libhwjpeg.so
 vendor/lib/libion_exynos.so
+vendor/lib/libpixelflinger.so
 vendor/lib/libsecnativefeature.so
 vendor/lib/libremotedisplay.so
 vendor/lib/libuniapi.so
@@ -200,9 +201,12 @@ vendor/lib64/libhwc2on1adapter.so
 vendor/lib64/libhwc2onfbadapter.so
 vendor/lib64/libhwjpeg.so
 vendor/lib64/libion_exynos.so
+vendor/lib64/libmaet.so
 vendor/lib64/libmpp.so
+vendor/lib64/libpixelflinger.so
 vendor/lib64/libremotedisplay.so
 vendor/lib64/libsecnativefeature.so
+vendor/lib64/libsxqk_skia.so
 vendor/lib64/libuniapi.so
 vendor/lib64/libuniplugin.so
 vendor/lib64/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
