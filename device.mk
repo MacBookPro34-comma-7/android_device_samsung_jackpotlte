@@ -297,11 +297,11 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.exynos \
+    android.hardware.power@1.0-service.exynos
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.samsung
+    android.hardware.light-service.universal7885
 
 # Fingerprint
 PRODUCT_PACKAGES += \
