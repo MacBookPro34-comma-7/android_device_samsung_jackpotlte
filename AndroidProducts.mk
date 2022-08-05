@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_jackpotlte.mk
+    $(LOCAL_DIR)/omni_jackpotlte.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_jackpotlte-user \
-    lineage_jackpotlte-userdebug \
-    lineage_jackpotlte-eng
+    omni_jackpotlte-user \
+    omni_jackpotlte-userdebug \
+    omni_jackpotlte-eng
