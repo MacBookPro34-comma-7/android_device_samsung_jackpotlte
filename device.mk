@@ -14,6 +14,10 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_HOST_PACKAGES += \
     dtbhtoolExynos
 
+# Recovery
+PRODUCT_PACKAGES += \
+    loggy
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/recovery/atrace.rc:$(TARGET_COPY_OUT_RECOVERY)/root/atrace.rc \
     $(DEVICE_PATH)/recovery/ueventd.rc:$(TARGET_COPY_OUT_RECOVERY)/root/ueventd.rc \
