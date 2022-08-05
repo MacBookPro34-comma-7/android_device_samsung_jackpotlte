@@ -11,5 +11,9 @@ ifeq ($(TARGET_RECOVERY_BUILD_LOGGY), true)
     LOCAL_MODULE_TAGS := optional
     LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/sbin
     LOCAL_VENDOR_MODULE := true
+
+    # change interpreter to /system/bin/linker64 -> /sbin/linker64
+    LOCAL_POST_INSTALL_CMD := patchelf --set-interpreter linker64 $(TARGET_RECOVERY_ROOT_OUT)/sbin/loggy
     include $(BUILD_EXECUTABLE)
 endif
+
