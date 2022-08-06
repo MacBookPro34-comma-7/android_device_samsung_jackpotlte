@@ -24,11 +24,8 @@ TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
 
 # Partitions - Vendor
-BOARD_VENDOR := samsung
 TARGET_COPY_OUT_VENDOR := system/vendor
 
 # Recovery
-BOARD_HAS_DOWNLOAD_MODE := true
-TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7885
 
