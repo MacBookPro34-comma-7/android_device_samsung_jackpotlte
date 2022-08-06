@@ -53,8 +53,6 @@ TARGET_NO_RECOVERY   := false
 TARGET_NO_KERNEL     := false
 
 # Kernel
-# TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-# TARGET_PREBUILT_DT := $(DEVICE_PATH)/prebuilt/dt.img
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
@@ -78,7 +76,6 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_FLASH_BLOCK_SIZE := 4096 # blockdev --getbsz /dev/block/mmcblk0p9
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DT := true
-# BOARD_KERNEL_PREBUILT_DT := true
 
 # Device Tree
 BOARD_USES_DT := true
