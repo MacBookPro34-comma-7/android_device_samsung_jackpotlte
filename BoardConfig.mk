@@ -20,7 +20,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
 
 # Kernel
 BOARD_BOOT_HEADER_NAME := SRPQH21B008KU
-TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
+TARGET_KERNEL_SOURCE := kernel/samsung/universal7885
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltekor_defconfig
 
 # Partitions - Vendor
