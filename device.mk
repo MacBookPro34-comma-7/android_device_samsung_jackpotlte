@@ -36,8 +36,6 @@ PRODUCT_ENFORCE_RRO_TARGETS += *
 # Properties
 include $(DEVICE_PATH)/system_prop.mk
 
-# Inherit from common
+# Inherit from common tree
 $(call inherit-product, device/samsung/universal7885-common/device-common.mk)
-
-$(call inherit-product-if-exists, vendor/samsung/jackpotlte/jackpotlte-vendor.mk)
 
