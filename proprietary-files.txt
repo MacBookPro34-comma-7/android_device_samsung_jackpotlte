@@ -2,11 +2,21 @@
 system/vendor/lib/libexynoscamera.so
 system/vendor/lib/libexynoscamera3.so
 system/vendor/lib/libexynosv4l2.so
+system/vendor/lib/libhifills.so
+system/vendor/lib/libhifills_interface.so
 system/vendor/lib/libsensorlistener.so
+system/vendor/lib/libremosaiclib.so
+system/vendor/lib/libremosaic_daemon.so
+system/vendor/lib/libremosaic_tuning.so
 system/vendor/lib64/libexynoscamera.so
 system/vendor/lib64/libexynoscamera3.so
 system/vendor/lib64/libexynosv4l2.so
+system/vendor/lib/libhifills.so
+system/vendor/lib/libhifills_interface.so
 system/vendor/lib64/libsensorlistener.so
+system/vendor/lib64/libremosaiclib.so
+system/vendor/lib64/libremosaic_daemon.so
+system/vendor/lib64/libremosaic_tuning.so
 
 # Graphics
 system/vendor/bin/hw/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0-service
